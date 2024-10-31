@@ -1,0 +1,12 @@
+Default
+Start: 600
+End: 1000
+Color: RGB(0, 10, 40)
+
+gon_00
+Start: 400
+End: 1000
+Color: RGB(0, 0, 0)
+
+gon_01, gon_10, gon_11
+(none)

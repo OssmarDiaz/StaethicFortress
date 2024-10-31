@@ -1,0 +1,14 @@
+las_26
+Start: 0
+End: 1700
+Color: RGB(20, 30, 50)
+
+las_29
+Start: 600
+End: 1900
+Color: RGB(0, 25, 10)
+
+las_30
+Start: 0
+End: 1900
+Color: RGB(0, 25, 10)

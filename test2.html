@@ -1,0 +1,318 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Repertorio A-frame</title>
+        <!-- icono del la pestaña -->
+        <link rel="shortcut icon" href="./Biblioteca/Gifs/nerv.gif">
+        <!-- link de la libreria para leer las etiquetas de aframe -->
+        <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+          <!-- scripts para enviroments-->
+        <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
+        <!-- script para gifs -->
+        <script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script>
+        <script src="https://rawgit.com/mayognaise/aframe-gif-component/master/dist/aframe-gif-component.min.js"></script>
+        <!-- para leer animación -->
+        <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+        <!-- script para texturas -->
+        <script src="https://cdn.jsdelivr.net/npm/aframe-enviropacks@latest/aframe-enviropacks.js"></script>
+        <!-- script para texto en 3d -->
+        <script
+            src="https://unpkg.com/aframe-text-geometry-component@^0.5.0/dist/aframe-text-geometry-component.min.js"></script>
+        <!-- script para interacciones -->
+        <script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script>
+        <!-- LIBRERIAS DE COLISIONES Y FÍSICAS-->
+        <script
+            src="https://cdn.rawgit.com/donmccurdy/aframe-physics-system/v4.0.1/dist/aframe-physics-system.min.js"></script>
+        <script src="https://unpkg.com/aframe-physics-extras@0.1.2/dist/aframe-physics-extras.min.js"></script>
+        <!-- scripts movimiento de la cámara -->
+        <script> src = "https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.0/dist/aframe-extras.min.js" </script>
+        <script> src = "https://unpkg.com/super-hands@2.0.2/dist/super-hands.min.js" </script>
+        <!-- scripts para partículas-->
+        <script src="https://unpkg.com/aframe-animation-component@3.2.1/dist/aframe-animation-component.min.js"></script>
+        <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
+        <script
+            src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
+        <script src="https://unpkg.com/aframe-extras.ocean@%5E3.5.x/dist/aframe-extras.ocean.min.js"></script>
+        <script src="https://unpkg.com/aframe-gradient-sky@1.2.0/dist/gradientsky.min.js"></script>
+        <!-- scipts para animacion de agua -->
+        <script src="https://unpkg.com/aframe-animation-component@3.2.1/dist/aframe-animation-component.min.js"></script>
+        <script src="https://unpkg.com/aframe-extras.ocean@%5E3.5.x/dist/aframe-extras.ocean.min.js"></script>
+        <script src="https://unpkg.com/aframe-animation-component@3.2.1/dist/aframe-animation-component.min.js"></script>
+        <!-- scripts para truco de transparencia en modelos 3d-->
+        <script>
+            AFRAME.registerComponent('model-opacity', {
+                schema: { default: 1.0 },
+                init: function () {
+                    // this.el.addEventListener('model-loaded', this.update.bind(this));
+                    this.el.addEventListener("model-loaded", () => {
+                        const object3DEl = this.el.object3DMap;
+                        ;
+   
+   
+   
+   
+                        var mesh = this.el.getObject3D('mesh'); // For hand, the result is undefined
+                        // var mesh = this.el.object3DMap.mesh; // For hand, the result is undefined
+                        console.log(mesh);
+                        var data = this.data;
+                        if (!mesh) { return; }
+                        mesh.traverse(function (node) {
+                            if (node.isMesh) {
+                                ;
+                                node.material.opacity = data;
+                                node.material.transparent = data < 1.0;
+                                node.material.needsUpdate = true;
+                            }
+                        });
+                    }, 2000)
+   
+   
+                },
+                update: function () {
+                    var mesh = this.el.getObject3D('mesh');
+                    var data = this.data;
+                    if (!mesh) { return; }
+                    mesh.traverse(function (node) {
+                        if (node.isMesh) {
+                            ;
+                            node.material.opacity = data;
+                            node.material.transparent = data < 1.0;
+                            node.material.needsUpdate = true;
+                        }
+                    });
+                }
+            });
+        </script>
+   
+    </head>
+  <body>
+
+
+    <a-assets>
+        <!-- Imagenes -->
+        <img id="night" src="./Biblioteca/Imagenes/night.jpg">
+        <img id="marine" src="./Biblioteca/Imagenes/marine.jpg">
+        <img id="face" src="./Biblioteca/Imagsenes/face.jpg">
+        <img id="wavy" src="./Biblioteca/Imagenes/wavy texture.jpg">
+        <img id="ojo" src="./Biblioteca/Imagenes/ojo.jpg">
+        <img id="design" src="./Biblioteca/Imagenes/g-design.jpg">
+        <img id="bubbles" src="./Biblioteca/Imagenes/bubbles.jpg">
+        <img id="star" src="./Biblioteca/Imagenes/star.png">
+
+
+        <!-- Modelos -->
+        <a-asset-item id="spiral" src="./Biblioteca/Modelos/water_splash_spiral/scene.gltf"></a-asset-item>
+        <a-asset-item id="table" src="./Biblioteca/Modelos/noguchi_coffee_table/new.gltf"></a-asset-item>
+        <a-asset-item id="water" src="./Biblioteca/Modelos/water_cooler/new.gltf"></a-asset-item>
+        <a-asset-item id="cat" src="./Biblioteca/Modelos/sleeping_cat_on_the_table_-_3d_scan/new.gltf"></a-asset-item>
+        <a-asset-item id="bottle" src="./Biblioteca/Modelos/plastic_water_bottle/scene.gltf"></a-asset-item>
+        <a-asset-item id="coffee" src="./Biblioteca/Modelos/coffee_table/scene.gltf"></a-asset-item>
+        <a-asset-item id="mira" src="./Biblioteca/Modelos/mira/new.gltf"></a-asset-item>
+       
+   
+    </a-assets>
+
+
+    <a-scene loading-screen="dotsColor:pink; backgroundColor:white" physics="gravity:-25; debug: false"
+    vr-mode-ui="enabled:false">
+
+
+       <!-- Enviroment  https://github.com/supermedium/aframe-environment-component -->
+       <a-entity environment="preset:goldmine; skyType:gradient; horizonColor:#010303; lighting:none; shadow:true; shadowSize:10; fog:0.3; playArea:1.3; stageSize:200; ground:hills; groundYScale:40; groundTexture:walkernoise; groundColor:#454545; groundColor2:#000000; dressing:none; grid:dots; gridColor:#71fd48S"></a-entity>
+
+
+     <!-- Piso invisible -->
+    <a-plane static-body position="0.445 0.030 -1.879" rotation="-90 0 0" color="#0e23aa" scale="200 200"
+    opacity="0"></a-plane>
+ 
+       <!-- Cielo -->
+        <a-sphere radius="130" material="src: #night ; side: double;"animation="property:rotation; to: 0 360 0; loop:true; dur:201900"></a-sphere>
+
+
+        <!-- Camara (Si cambio la posicion no funcionan las paredes estaticas :< )-->
+              <!-- Luces (Si añadimos luces, A-frame quita las default automaticamente) -->      
+        <a-entity movement-controls kinematic-body>
+        <a-entity id="camera" camera position="0 2.5 0" look-controls light="intensity:0.8; type:spot; penumbra:1; distance:40; angle:45"> </a-entity>
+        </a-entity>
+
+
+         <!-- Luces (Si añadimos luces, A-frame quita las default automaticamente) -->  
+<!-- Luz arriba del dispensador -->
+         <a-entity angle="19.7" penumbra="1" intensity="15" rotation="-90 0 0" light="type: spot; angle: 19; penumbra: 1" position="9.624 7.622 -13.356"></a-entity>
+
+
+         <a-entity light="type: directional; color: #FFF; intensity: 0.2" position="-0.5 1 1"></a-entity>
+
+
+
+
+         <!-- Luces provisionales -->
+         <!-- <a-entity light="type: ambient; color: #BBB"></a-entity>
+         <a-entity light="type: directional; color: #FFF; intensity: 0.6" position="-0.5 1 1"></a-entity> -->
+
+
+
+
+      <!-- Paredes estaticas -->
+         <!-- 1 -->
+         <a-box position="-23.813 1.993 -29.925"  material="src: #star" repeat="6 1" scale="18.16 4.49 0.200" static-body></a-box>
+         <a-box position="13.925 1.993 -29.925"  material="src: #star" repeat="12 1" scale="40 4.49 0.200" static-body></a-box>
+ 
+         <a-box position="33.860 1.993 0.022"  material="src: #star" repeat="17 1" scale="60 4.49 0.200"  rotation="0 90 0" static-body></a-box>
+ 
+         <a-box position="28.474 1.993 30.078"  material="src: #star" repeat="4 1" scale="10.860 4.49 0.200"  rotation="0 0 0" static-body></a-box>
+         <a-box position="-8.826 1.993 30.078"  material="src: #star" repeat="15 1" scale="48 4.49 0.200"  rotation="0 0 0" static-body></a-box>
+ 
+         <a-box position="-32.814 1.993 0.102"  material="src: #star" repeat="17 1" scale="60 4.49 0.200"  rotation="0 90 0" static-body></a-box>
+ 
+     
+         <!-- 2 -->
+         <a-box position="-20.081 1.993 -22.381"  material="src: #star" repeat="4 1" scale="10.520 4.49 0.200" static-body></a-box>
+         <a-box position="9.532 1.993 -22.381"  material="src: #star" repeat="10 1" scale="31.090 4.49 0.200" static-body></a-box>
+ 
+         <a-box position="25.081 1.993 0.183"  material="src: #star" repeat="16 1" scale="45.280 4.49 0.200"  rotation="0 90 0" static-body></a-box>
+ 
+         <a-box position="-0.140 1.993 22.806"  material="src: #star" repeat="16 1" scale="50.340 4.49 0.200"  rotation="0 0 0" static-body></a-box>
+ 
+         <a-box position="-25.288 1.993 12.770"  material="src: #star" repeat="7 1" scale="20.130 4.49 0.200"  rotation="0 90 0" static-body></a-box>
+         <a-box position="-25.288 1.993 -14.190"  material="src: #star" repeat="6 1" scale="16.390 4.49 0.200"  rotation="0 90 0" static-body></a-box>
+ 
+ 
+           <!-- 3 -->
+           <a-box position="0.080 1.993 -14.537" material="src: #star" repeat="12 1" scale="35 4.49 0.200" static-body></a-box>
+ 
+           <a-box position="17.595 1.993 0.682" material="src: #star" repeat="10 1" scale="30.530 4.49 0.200"  rotation="0 90 0" static-body></a-box>
+ 
+           <a-box position="0.057 1.993 15.826" material="src: #star" repeat="11 1" scale="35 4.49 0.200"  rotation="0 0 0" static-body></a-box>
+ 
+           <a-box position="-17.343 1.993 12.031" material="src: #star" repeat="3 1" scale="7.460 4.49 0.200"  rotation="0 90 0" static-body></a-box>
+           <a-box position="-17.308 1.993 -2.633" material="src: #star" repeat="4 1" scale="10.950 4.49 0.200"  rotation="0 90 0" static-body></a-box>
+ 
+            <!-- 4 -->
+            <a-box position="-6.875 1.993 -8.073" material="src: #star" repeat="3 1" scale="8.750 4.49 0.200" static-body></a-box>
+            <a-box position="6.807 1.993 -8.073" material="src: #star" repeat="3 1" scale="8.750 4.49 0.200" static-body></a-box>
+           
+ 
+            <a-box position="11.107 1.993 0.682" material="src: #star" repeat="6 1" scale="17.30 4.49 0.200"  rotation="0 90 0" static-body></a-box>
+ 
+            <a-box position="-0.107 1.993 9.282" material="src: #star" repeat="9 1" scale="22.310 4.49 0.200"  rotation="0 0 0" static-body></a-box>
+ 
+            <a-box position="-11.298 1.993 5.115" material="src: #star" repeat="3 1" scale="8.490 4.49 0.200"  rotation="0 90 0" static-body></a-box>
+            <a-box position="-11.298 1.993 -5.773" material="src: #star" repeat="2 1" scale="4.750 4.49 0.200"  rotation="0 90 0" static-body></a-box>
+ 
+            <!-- 5 -->
+            <a-box position="-0.383 1.993 -2.521" material="src: #star" repeat="2 1" scale="8.790 4.49 0.200" static-body></a-box>
+ 
+            <a-box position="4.009 1.993 0.869" material="src: #star" repeat="1 1" scale="6.910 4.49 0.200" rotation="0 90 0" static-body></a-box>
+ 
+            <a-box position="-0.383 1.993 4.266" material="src: #star" repeat="2 1" scale="8.790 4.49 0.200" static-body></a-box>
+ 
+            <!-- Paredes en contra -->
+            <a-box position="-14.733 1.993 -22.275" material="src: #star" repeat="3 1" scale="15.440 4.49 0.200"  rotation="0 90 0" static-body></a-box>
+            <a-box position="-18.302 1.993 2.831" material="src: #star" repeat="3 1" scale="13.970 4.49 0.200" static-body></a-box>
+     
+ 
+             <!-- Techo transparente -->
+            <a-box position="-0.322 4.153 0.819" opacity="0.2" scale="6.730 8.840 0.090" rotation="90 90 0" static-body></a-box>
+
+
+
+
+           <!-- Figuras geometricas -->
+           <!-- Pelotas  -->
+           <a-sphere position="0.962 25  0.760" radius="3" color="#EF2D5E" scale="0.13 0.13 0.13" animation="property: position; to:0.962 4.537 0.760; dur: 1000; easing: easeInQuad; loop: true; dir:alternate"></a-sphere>
+
+
+            <!-- Dodecaedro con gif-->
+        <a-sphere position="-4.369 1.3381 0.957" static-body radius="1.25" geometry="primitive: dodecahedron" scale=".3 .3 .3"  material="shader: gif; src: url(https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExbThpYzZ5Nmc2NnJqaDE2MGM3YmQ1NWcyd3c3czdvM29yaHo2MDNrdCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l0HlTN69zen0ciJXi/giphy.gif)" animation__escala="property:scale; to: .7 .7 .7; loop:true; dur:9000; easing: linear; dir: alternate" animation__rotacion="property:rotation; to: 0 360 0; loop:true; dur:900; easing: linear" animation__position="property:position; to: 2.167 2 0.957; loop:true; dur:900; easing: linear; dir:alternate"></a-sphere>
+
+
+
+
+        <!-- Escaleras -->
+        <a-box static-body position="-21.033 0.162 -1.594" scale="3.280 0.200 0.960" rotation="0 90 0" color="blue" opacity="0.8"></a-box>
+        <a-box static-body position="-21.984 0.973 -1.594" scale="3.280 0.200 0.960" rotation="0 90 0" color="blue" opacity="0.8"></a-box>
+        <a-box static-body position="-22.956 1.649 -1.594" scale="3.280 0.200 0.960" rotation="0 90 0" color="blue" opacity="0.8"></a-box>
+        <a-box static-body position="-23.925 2.349 -1.594" scale="3.280 0.200 0.960" rotation="0 90 0" color="blue" opacity="0.8"></a-box>
+        <a-box static-body position="-24.869 3.118 -1.594" scale="3.280 0.200 0.960" rotation="0 90 0" color="blue" opacity="0.8"></a-box>
+        <a-box static-body position="-25.894 3.870 -1.594" scale="3.280 0.200 0.960" rotation="0 90 0" color="blue" opacity="0.8"></a-box>
+        <a-box static-body position="-26.879 4.639 -1.594" scale="3.280 0.200 0.960" rotation="0 90 0" color="blue" opacity="0.8"></a-box>
+        <a-box static-body position="-27.891 5.382 -1.594" scale="3.280 0.200 0.960" rotation="0 90 0" color="blue" opacity="0.8"></a-box>
+
+
+
+
+               <!-- Modelos -->
+               <a-entity gltf-model="#spiral" rotation="0 0 0" model-opacity="0.4" position="7.615 0 -0.196" scale="1 1 1" animation="property:rotation; to: 0 360 0; loop:true; dur:1500; easing:linear"></a-entity>
+               <a-entity position="9.635 -0.025 -13.657" gltf-model="#water" scale=".8 .8 .8"></a-entity>
+               <a-entity position="-14.413 -0.052 13.933" gltf-model="#table" scale=".25 .25 .25"></a-entity>
+               <a-entity position="-13.421 1.562 14.306" rotation="0 -54.100 0" static-body gltf-model="#cat" scale="3 3 3"></a-entity>
+               <a-entity position="-16.171 1.467 14.479" rotation="0 -54.100 0" gltf-model="#bottle" scale=".03 .03 .03"></a-entity>
+               <a-entity position="0 0 -18.830" dynamic-body rotation="0 0 0" gltf-model="#coffee" scale="2 2 2"></a-entity>
+               <a-entity gltf-model="#mira" animation-mixer position="-6.533 0 -37.586" rotation="0 0 0" scale="10 10 10"></a-entity>
+
+
+            <!-- Llamando Imagenes -->
+            <a-image src="#design" scale="4 4" position="-0.329 2.140 -2.638" rotation="0 180 0"></a-image>
+            <a-image src="#bubbles" scale="3.230 7.990" position="-6.866 2.039 -8.203" rotation="0 0 90"></a-image>
+
+
+            <!-- Llamando Gifs -->
+            <a-entity position="-25.155 2.074 11.369" geometry="primitive: plane; width: 4; height: 4" material="shader: gif; src: url(./Biblioteca/Gifs/face.gif); repeat: 2 2; transparent: true; alphaTest: 0.5; side: double" rotation="0 90 0"></a-entity>
+
+
+            <a-entity position="-11.293 1.993 -3.390" scale="4.502 0.193 1" geometry="primitive: plane" material="shader: gif; src: url(./Biblioteca/Gifs/gif1.gif); repeat: 2 2; transparent: true; alphaTest: 0.5; side: double" rotation="0 0 90"></a-entity>
+
+
+            <a-entity position="-11.293 1.993 0.868" scale="4.502 0.193 1" geometry="primitive: plane" material="shader: gif; src: url(./Biblioteca/Gifs/gif1.gif); repeat: 2 2; transparent: true; alphaTest: 0.5; side: double" rotation="0 0 90"></a-entity>
+
+
+            <a-entity position="3.890 2.019 0.868" scale="6.630 4.290 2" geometry="primitive: plane" material="shader: gif; src: url(./Biblioteca/Gifs/gif2.gif); repeat: 2 2; transparent: true; alphaTest: 0.5; side: double" rotation="0 90 0"></a-entity>
+
+
+
+
+
+
+           
+
+
+    </a-scene>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
+
+
+
+
+<!-- voxels.com -->
+
+
+
+
+<!-- Consulta de descarga de recursos:
+- https://sketchfab.com/feed
+- https://market.pmnd.rs/
+- https://nasa3d.arc.nasa.gov/
+- https://www.cgtrader.com/
+- https://www.craftsmanspace.com/
+- https://archive3d.net/
+- https://clara.io/library
+- https://www.turbosquid.com/
+- mixamo.com
+- https://giphy.com/
+- https://polyhaven.com/
+- https://freesound.org/
+-->
+

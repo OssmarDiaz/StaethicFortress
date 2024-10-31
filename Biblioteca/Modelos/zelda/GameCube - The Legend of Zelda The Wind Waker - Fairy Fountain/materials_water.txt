@@ -1,0 +1,58 @@
+SC_00kiwa_v
+===========
+  Textures:
+    - Txa_umi_kiwa_01
+        Offset: 0.9599999189376831, 0
+        Center: 0.5, 0
+        Scale: 2, 3.1185646057128906
+    - Txa_umi_kiwa_01
+        Offset: -0.9599999189376831, 0
+        Center: 0.5, 0
+        Scale: 1, 2.6364798545837402
+
+  Ambient Colors:
+    - 50, 50, 50, 50
+
+  Color Registers:
+    - 255, 255, 255, 279
+    - 200, 200, 255, 255
+
+  Steps:
+    1: RGB = (0, 0, 0)
+         A = (tex #1 A)
+    2: RGB = (0, 0, 0)
+         A = (tex #2 A), then add (prev. A)
+    3: RGB = (255, 255, 255)
+         A = ((vertex A) * (prev. A))
+
+
+
+SC_00kiwa_v(2)
+==============
+  Textures:
+    - Txa_umi_kage_01
+        Offset: 0.8099998235702515, -1
+        Center: 0.5, 0
+        Scale: 2, 2.0323455333709717
+    - Txa_umi_kage_01
+        Offset: -0.8099998235702515, -1
+        Center: 0.5, 0
+        Scale: 3, 2.0646913051605225
+
+  Ambient Colors:
+    - 50, 50, 50, 50
+
+  Constant Colors:
+    - 255, 255, 255, 50
+
+  Material Colors:
+    - 204, 204, 204, 255
+    - 204, 204, 204, 255
+
+  Steps:
+    1: RGB = (0, 0, 0)
+         A = (tex #1 A)
+    2: RGB = (0, 0, 0)
+         A = (tex #2 A), then add (prev. A)
+    3: RGB = (0, 0, 0)
+         A = ((prev. A) * 50)

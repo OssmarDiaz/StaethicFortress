@@ -1,0 +1,256 @@
+N_mR01ji02_v
+============
+  Textures:
+    - R_13_ji02
+
+  Ambient Colors:
+    - 50, 50, 50, 50
+
+  Material Colors:
+    - 204, 204, 204, 255
+    - 204, 204, 204, 255
+
+  Color Registers:
+    - 0, 0, 0, 255
+
+  Steps:
+    1: RGB = (vertex RGB)
+         A = ((tex #1 A) * (vertex A))
+    2: RGB = ((prev. RGB) * (tex #1 RGB))
+         A = (prev. A)
+
+
+
+_o8_v
+=====
+  Textures:
+    - R_13_water
+
+  Ambient Colors:
+    - 50, 50, 50, 50
+
+  Color Registers:
+    - 0, 0, 0, 255
+
+  Steps:
+    1: RGB = (vertex RGB)
+         A = ((tex #1 A) * (vertex A))
+    2: RGB = ((prev. RGB) * (tex #1 RGB))
+         A = (prev. A)
+
+
+
+lambert1_v
+==========
+  Textures:
+    - R_13_snow02
+        Offset: 0, -0.9410797953605652
+
+  Ambient Colors:
+    - 50, 50, 50, 50
+
+  Material Colors:
+    - 204, 204, 204, 255
+    - 204, 204, 204, 255
+
+  Steps:
+    1: RGB = ((tex #1 RGB) * (vertex RGB))
+         A = ((tex #1 A) * (vertex A))
+
+
+
+lambert73_v
+===========
+  Textures:
+    - R_13_wall01
+
+  Ambient Colors:
+    - 50, 50, 50, 50
+
+  Material Colors:
+    - 204, 204, 204, 255
+    - 204, 204, 204, 255
+
+  Color Registers:
+    - 0, 0, 0, 255
+
+  Steps:
+    1: RGB = (vertex RGB)
+         A = ((tex #1 A) * (vertex A))
+    2: RGB = ((prev. RGB) * (tex #1 RGB))
+         A = (prev. A)
+
+
+
+lambert78_v
+===========
+  Textures:
+    - R_13_wall02
+
+  Ambient Colors:
+    - 50, 50, 50, 50
+
+  Material Colors:
+    - 204, 204, 204, 255
+    - 204, 204, 204, 255
+
+  Color Registers:
+    - 0, 0, 0, 255
+
+  Steps:
+    1: RGB = (vertex RGB)
+         A = ((tex #1 A) * (vertex A))
+    2: RGB = ((prev. RGB) * (tex #1 RGB))
+         A = (prev. A)
+
+
+
+lambert79_v
+===========
+  Textures:
+    - R_13_shell01
+
+  Ambient Colors:
+    - 50, 50, 50, 50
+
+  Material Colors:
+    - 204, 204, 204, 255
+    - 204, 204, 204, 255
+
+  Color Registers:
+    - 0, 0, 0, 255
+
+  Steps:
+    1: RGB = (vertex RGB)
+         A = ((tex #1 A) * (vertex A))
+    2: RGB = ((prev. RGB) * (tex #1 RGB))
+         A = (prev. A)
+
+
+
+lambert80_v
+===========
+  Textures:
+    - R_13_shell03
+
+  Ambient Colors:
+    - 50, 50, 50, 50
+
+  Material Colors:
+    - 204, 204, 204, 255
+    - 204, 204, 204, 255
+
+  Color Registers:
+    - 0, 0, 0, 255
+
+  Steps:
+    1: RGB = (vertex RGB)
+         A = ((tex #1 A) * (vertex A))
+    2: RGB = ((prev. RGB) * (tex #1 RGB))
+         A = (prev. A)
+
+
+
+lambert81_v
+===========
+  Textures:
+    - R_13shell04
+
+  Ambient Colors:
+    - 50, 50, 50, 50
+
+  Material Colors:
+    - 204, 204, 204, 255
+    - 204, 204, 204, 255
+
+  Color Registers:
+    - 0, 0, 0, 255
+
+  Steps:
+    1: RGB = (vertex RGB)
+         A = ((tex #1 A) * (vertex A))
+    2: RGB = ((prev. RGB) * (tex #1 RGB))
+         A = (prev. A)
+
+
+
+lambert82_v
+===========
+  Textures:
+    - R_13_b
+
+  Ambient Colors:
+    - 50, 50, 50, 50
+
+  Material Colors:
+    - 204, 204, 204, 255
+    - 204, 204, 204, 255
+
+  Steps:
+    1: RGB = ((tex #1 RGB) * (vertex RGB))
+         A = ((tex #1 A) * (vertex A))
+
+
+
+lambert83_v
+===========
+  Textures:
+    - R_13_wall03
+
+  Ambient Colors:
+    - 50, 50, 50, 50
+
+  Material Colors:
+    - 204, 204, 204, 255
+    - 204, 204, 204, 255
+
+  Color Registers:
+    - 0, 0, 0, 255
+
+  Steps:
+    1: RGB = (vertex RGB)
+         A = ((tex #1 A) * (vertex A))
+    2: RGB = ((prev. RGB) * (tex #1 RGB))
+         A = (prev. A)
+
+
+
+lambert84_v
+===========
+  Textures:
+    - R_13shell_ura
+
+  Ambient Colors:
+    - 50, 50, 50, 50
+
+  Material Colors:
+    - 204, 204, 204, 255
+    - 204, 204, 204, 255
+
+  Color Registers:
+    - 0, 0, 0, 255
+
+  Steps:
+    1: RGB = (vertex RGB)
+         A = ((tex #1 A) * (vertex A))
+    2: RGB = ((prev. RGB) * (tex #1 RGB))
+         A = (prev. A)
+
+
+
+lambert1_v(2)
+=============
+  Textures:
+    - R_13_snow02
+        Offset: 0, -1.8821595907211304
+
+  Ambient Colors:
+    - 50, 50, 50, 50
+
+  Material Colors:
+    - 204, 204, 204, 255
+    - 204, 204, 204, 255
+
+  Steps:
+    1: RGB = ((tex #1 RGB) * (vertex RGB))
+         A = ((tex #1 A) * (vertex A))

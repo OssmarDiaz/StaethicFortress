@@ -1,0 +1,44 @@
+newmtl m6
+Kd 1.000000 1.000000 1.000000
+illum 1
+map_Kd B_sters_color1.png
+
+newmtl _01_Rail
+Kd 1.000000 1.000000 1.000000
+illum 1
+map_Kd B_exsky_Rail_color1.png
+
+newmtl _01_Rail_1
+Kd 1.000000 1.000000 1.000000
+illum 1
+map_Kd B_exsky_Rail_color2.png
+
+newmtl _01_Rail_3
+Kd 1.000000 1.000000 1.000000
+illum 1
+map_Kd B_exsky_Rail_color3.png
+
+newmtl _01_Rail_5
+Kd 1.000000 1.000000 1.000000
+illum 1
+map_Kd B_exsky_Rail_color4.png
+
+newmtl _o28
+Kd 1.000000 1.000000 1.000000
+illum 1
+map_Kd B_exsky_Train_edit.png
+
+newmtl _cloud
+Kd 1.000000 1.000000 1.000000
+illum 1
+map_Kd B_exsky_Silen_color1.png
+
+newmtl _plane
+Kd 1.000000 1.000000 1.000000
+illum 1
+map_Kd B_exsky_Aplane_color.png
+
+newmtl _silen
+Kd 1.000000 1.000000 1.000000
+illum 1
+map_Kd B_exsky_Silen_color2.png

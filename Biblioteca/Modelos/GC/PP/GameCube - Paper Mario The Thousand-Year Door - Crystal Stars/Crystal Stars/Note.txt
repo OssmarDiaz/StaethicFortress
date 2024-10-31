@@ -1,0 +1,5 @@
+The Crystal Stars use a different format from other models, so they cannot be ripped normally.
+This rip is specifically the Diamond Star, star #1.
+However, I have included colors from all of the other stars.
+This model should work fine for most atars except for the Crystal Star (#7), which needs a
+different UV map for the rainbow shine effect.

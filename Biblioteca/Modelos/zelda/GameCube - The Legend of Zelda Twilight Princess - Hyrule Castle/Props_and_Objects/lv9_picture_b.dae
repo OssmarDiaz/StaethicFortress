@@ -1,0 +1,295 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+  <asset />
+  <library_images>
+    <image id="W_picture_waku00">
+      <init_from>W_picture_waku00.png</init_from>
+    </image>
+    <image id="W_picture_ura00">
+      <init_from>W_picture_ura00.png</init_from>
+    </image>
+    <image id="W_Lv9R03picture_B">
+      <init_from>W_Lv9R03picture_B.png</init_from>
+    </image>
+  </library_images>
+  <library_materials>
+    <material id="aa_picture_B_v">
+      <instance_effect url="#Effect_aa_picture_B_v" />
+    </material>
+    <material id="aa_picture_waku_v">
+      <instance_effect url="#Effect_aa_picture_waku_v" />
+    </material>
+    <material id="aa_picture_ura_v">
+      <instance_effect url="#Effect_aa_picture_ura_v" />
+    </material>
+  </library_materials>
+  <library_effects>
+    <effect id="Effect_aa_picture_B_v">
+      <profile_COMMON>
+        <newparam sid="surface_aa_picture_B_v-diffuse">
+          <surface type="2D">
+            <init_from>W_Lv9R03picture_B</init_from>
+            <format>A8R8G8B8</format>
+          </surface>
+        </newparam>
+        <newparam sid="sampler_aa_picture_B_v-diffuse">
+          <sampler2D>
+            <source>surface_aa_picture_B_v-diffuse</source>
+            <wrap_s>WRAP</wrap_s>
+            <wrap_t>WRAP</wrap_t>
+          </sampler2D>
+        </newparam>
+        <technique sid="common">
+          <phong>
+            <diffuse>
+              <texture texture="sampler_aa_picture_B_v-diffuse" texcoord="CHANNEL0" />
+            </diffuse>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <specular>
+              <color sid="specular">0 0 0 1</color>
+            </specular>
+          </phong>
+        </technique>
+      </profile_COMMON>
+    </effect>
+    <effect id="Effect_aa_picture_waku_v">
+      <profile_COMMON>
+        <newparam sid="surface_aa_picture_waku_v-diffuse">
+          <surface type="2D">
+            <init_from>W_picture_waku00</init_from>
+            <format>A8R8G8B8</format>
+          </surface>
+        </newparam>
+        <newparam sid="sampler_aa_picture_waku_v-diffuse">
+          <sampler2D>
+            <source>surface_aa_picture_waku_v-diffuse</source>
+            <wrap_s>WRAP</wrap_s>
+            <wrap_t>WRAP</wrap_t>
+          </sampler2D>
+        </newparam>
+        <technique sid="common">
+          <phong>
+            <diffuse>
+              <texture texture="sampler_aa_picture_waku_v-diffuse" texcoord="CHANNEL0" />
+            </diffuse>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <specular>
+              <color sid="specular">0 0 0 1</color>
+            </specular>
+          </phong>
+        </technique>
+      </profile_COMMON>
+    </effect>
+    <effect id="Effect_aa_picture_ura_v">
+      <profile_COMMON>
+        <newparam sid="surface_aa_picture_ura_v-diffuse">
+          <surface type="2D">
+            <init_from>W_picture_ura00</init_from>
+            <format>A8R8G8B8</format>
+          </surface>
+        </newparam>
+        <newparam sid="sampler_aa_picture_ura_v-diffuse">
+          <sampler2D>
+            <source>surface_aa_picture_ura_v-diffuse</source>
+            <wrap_s>WRAP</wrap_s>
+            <wrap_t>WRAP</wrap_t>
+          </sampler2D>
+        </newparam>
+        <technique sid="common">
+          <phong>
+            <diffuse>
+              <texture texture="sampler_aa_picture_ura_v-diffuse" texcoord="CHANNEL0" />
+            </diffuse>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <specular>
+              <color sid="specular">0 0 0 1</color>
+            </specular>
+          </phong>
+        </technique>
+      </profile_COMMON>
+    </effect>
+  </library_effects>
+  <library_geometries>
+    <geometry id="Shape0-mesh" name="Shape 0">
+      <mesh>
+        <source id="Shape0-position">
+          <float_array id="Shape0-position-array" count="36">-75 175 5 75 175 5 0 100 5 75 175 5 75 25 5 0 100 5 0 100 5 75 25 5 -75 25 5 0 100 5 -75 25 5 -75 175 5</float_array>
+          <technique_common>
+            <accessor source="#Shape0-position-array" count="12" stride="3">
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Shape0-normal">
+          <float_array id="Shape0-normal-array" count="36">0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1</float_array>
+          <technique_common>
+            <accessor source="#Shape0-normal-array" count="12" stride="3">
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Shape0-texcoord">
+          <float_array id="Shape0-texcoord-array" count="24">0.001953125 0.9980469 0.9979248 0.9980469 0.5 0.5 0.9979248 0.9980469 0.9979248 0.002075195 0.5 0.5 0.5 0.5 0.9979248 0.002075195 0.001953125 0.002075195 0.5 0.5 0.001953125 0.002075195 0.001953125 0.9980469</float_array>
+          <technique_common>
+            <accessor source="#Shape0-texcoord-array" count="12" stride="2">
+              <param name="S" type="float" />
+              <param name="T" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="Shape0-vertex">
+          <input semantic="POSITION" source="#Shape0-position" />
+        </vertices>
+        <triangles material="aa_picture_B_v" count="4">
+          <input semantic="VERTEX" source="#Shape0-vertex" offset="0" />
+          <input semantic="NORMAL" source="#Shape0-normal" offset="1" />
+          <input semantic="TEXCOORD" source="#Shape0-texcoord" offset="2" set="0" />
+          <p>2 2 2 1 1 1 0 0 0 5 5 5 4 4 4 3 3 3 8 8 8 7 7 7 6 6 6 11 11 11 10 10 10 9 9 9 </p>
+        </triangles>
+      </mesh>
+    </geometry>
+    <geometry id="Shape1-mesh" name="Shape 1">
+      <mesh>
+        <source id="Shape1-position">
+          <float_array id="Shape1-position-array" count="216">87.5 187.5 10 100 200 10 87.5 12.5 10 100 200 10 100 0 10 87.5 12.5 10 87.5 12.5 10 100 0 10 -100 0 10 100 200 10 87.5 187.5 10 -100 200 10 87.5 187.5 10 -87.5 187.5 10 -100 200 10 -100 200 10 -87.5 187.5 10 -100 0 10 -87.5 12.5 10 -87.5 187.5 10 -75 25 5 -87.5 187.5 10 -75 175 5 -75 25 5 87.5 12.5 10 -87.5 12.5 10 75 25 5 -87.5 12.5 10 -75 25 5 75 25 5 87.5 187.5 10 87.5 12.5 10 75 175 5 87.5 12.5 10 75 25 5 75 175 5 -75 175 5 -87.5 187.5 10 75 175 5 -87.5 187.5 10 87.5 187.5 10 75 175 5 -100 0 10 -100 0 0 -100 200 10 -100 0 0 -100 200 0 -100 200 10 100 0 0 100 0 10 100 200 0 100 0 10 100 200 10 100 200 0 100 0 0 -100 0 0 100 0 10 -100 0 0 -100 0 10 100 0 10 100 200 10 -100 200 10 100 200 0 -100 200 10 -100 200 0 100 200 0 87.5 12.5 10 -100 0 10 -87.5 12.5 10 -100 0 10 -87.5 187.5 10 -87.5 12.5 10</float_array>
+          <technique_common>
+            <accessor source="#Shape1-position-array" count="72" stride="3">
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Shape1-normal">
+          <float_array id="Shape1-normal-array" count="216">0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0.3713379 0 0.9284668 0.3713379 0 0.9284668 0.3713379 0 0.9284668 0.3713379 0 0.9284668 0.3713379 0 0.9284668 0.3713379 0 0.9284668 0 0.3713379 0.9284668 0 0.3713379 0.9284668 0 0.3713379 0.9284668 0 0.3713379 0.9284668 0 0.3713379 0.9284668 0 0.3713379 0.9284668 -0.3713379 0 0.9284668 -0.3713379 0 0.9284668 -0.3713379 0 0.9284668 -0.3713379 0 0.9284668 -0.3713379 0 0.9284668 -0.3713379 0 0.9284668 0 -0.3713379 0.9284668 0 -0.3713379 0.9284668 0 -0.3713379 0.9284668 0 -0.3713379 0.9284668 0 -0.3713379 0.9284668 0 -0.3713379 0.9284668 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1</float_array>
+          <technique_common>
+            <accessor source="#Shape1-normal-array" count="72" stride="3">
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Shape1-texcoord">
+          <float_array id="Shape1-texcoord-array" count="144">0.4827881 -1.180542 0.01733398 -1.363647 0.4827881 1.084106 0.01733398 -1.363647 0.01733398 1.265015 0.4827881 1.084106 0.4827881 1.084106 0.01733398 1.265015 0.01733398 -1.363647 0.01733398 -1.363647 0.4827881 -1.180542 0.01733398 1.265015 0.4827881 -1.180542 0.4827881 1.082642 0.01733398 1.265015 0.01733398 1.265015 0.4827881 1.082642 0.01733398 -1.363647 0.4827881 -1.181152 0.4827881 1.082642 0.9848633 -0.9771729 0.4827881 1.082642 0.9848633 0.8790283 0.9848633 -0.9771729 0.4827881 1.084106 0.4827881 -1.181152 0.9848633 0.880249 0.4827881 -1.181152 0.9848633 -0.9771729 0.9848633 0.880249 0.4827881 -1.180542 0.4827881 1.084106 0.9848633 -0.9771729 0.4827881 1.084106 0.9848633 0.880249 0.9848633 -0.9771729 0.9848633 0.8790283 0.4827881 1.082642 0.9848633 -0.9771729 0.4827881 1.082642 0.4827881 -1.180542 0.9848633 -0.9771729 0.01733398 -1.363647 0.5595703 -1.363647 0.01733398 1.265015 0.5595703 -1.363647 0.5595703 1.265015 0.01733398 1.265015 0.01733398 -1.363647 0.5595703 -1.363647 0.01733398 1.265015 0.5595703 -1.363647 0.5595703 1.265015 0.01733398 1.265015 0.5595703 -1.363647 0.5595703 1.265015 0.01733398 -1.363647 0.5595703 1.265015 0.01733398 1.265015 0.01733398 -1.363647 0.5595703 -1.363647 0.5595703 1.265015 0.01733398 -1.363647 0.5595703 1.265015 0.01733398 1.265015 0.01733398 -1.363647 0.4827881 1.084106 0.01733398 -1.363647 0.4827881 -1.181152 0.01733398 -1.363647 0.4827881 1.082642 0.4827881 -1.181152</float_array>
+          <technique_common>
+            <accessor source="#Shape1-texcoord-array" count="72" stride="2">
+              <param name="S" type="float" />
+              <param name="T" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="Shape1-vertex">
+          <input semantic="POSITION" source="#Shape1-position" />
+        </vertices>
+        <triangles material="aa_picture_waku_v" count="24">
+          <input semantic="VERTEX" source="#Shape1-vertex" offset="0" />
+          <input semantic="NORMAL" source="#Shape1-normal" offset="1" />
+          <input semantic="TEXCOORD" source="#Shape1-texcoord" offset="2" set="0" />
+          <p>2 2 2 1 1 1 0 0 0 5 5 5 4 4 4 3 3 3 8 8 8 7 7 7 6 6 6 11 11 11 10 10 10 9 9 9 14 14 14 13 13 13 12 12 12 17 17 17 16 16 16 15 15 15 20 20 20 19 19 19 18 18 18 23 23 23 22 22 22 21 21 21 26 26 26 25 25 25 24 24 24 29 29 29 28 28 28 27 27 27 32 32 32 31 31 31 30 30 30 35 35 35 34 34 34 33 33 33 38 38 38 37 37 37 36 36 36 41 41 41 40 40 40 39 39 39 44 44 44 43 43 43 42 42 42 47 47 47 46 46 46 45 45 45 50 50 50 49 49 49 48 48 48 53 53 53 52 52 52 51 51 51 56 56 56 55 55 55 54 54 54 59 59 59 58 58 58 57 57 57 62 62 62 61 61 61 60 60 60 65 65 65 64 64 64 63 63 63 68 68 68 67 67 67 66 66 66 71 71 71 70 70 70 69 69 69 </p>
+        </triangles>
+      </mesh>
+    </geometry>
+    <geometry id="Shape2-mesh" name="Shape 2">
+      <mesh>
+        <source id="Shape2-position">
+          <float_array id="Shape2-position-array" count="18">100 200 0 -100 200 0 100 0 0 -100 200 0 -100 0 0 100 0 0</float_array>
+          <technique_common>
+            <accessor source="#Shape2-position-array" count="6" stride="3">
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Shape2-normal">
+          <float_array id="Shape2-normal-array" count="18">0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1</float_array>
+          <technique_common>
+            <accessor source="#Shape2-normal-array" count="6" stride="3">
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Shape2-texcoord">
+          <float_array id="Shape2-texcoord-array" count="12">1 0 0 0 1 1 0 0 0 1 1 1</float_array>
+          <technique_common>
+            <accessor source="#Shape2-texcoord-array" count="6" stride="2">
+              <param name="S" type="float" />
+              <param name="T" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="Shape2-vertex">
+          <input semantic="POSITION" source="#Shape2-position" />
+        </vertices>
+        <triangles material="aa_picture_ura_v" count="2">
+          <input semantic="VERTEX" source="#Shape2-vertex" offset="0" />
+          <input semantic="NORMAL" source="#Shape2-normal" offset="1" />
+          <input semantic="TEXCOORD" source="#Shape2-texcoord" offset="2" set="0" />
+          <p>2 2 2 1 1 1 0 0 0 5 5 5 4 4 4 3 3 3 </p>
+        </triangles>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_visual_scenes>
+    <visual_scene id="Scene" name="Scene">
+      <node id="Armature" name="Armature" type="NODE">
+        <matrix sid="transform">1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</matrix>
+      </node>
+      <node id="Shape 0" name="Shape 0" type="NODE">
+        <instance_geometry url="#Shape0-mesh" name="Shape 0">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="aa_picture_B_v" target="#aa_picture_B_v">
+                <bind_vertex_input semantic="CHANNEL0" input_semantic="TEXCOORD" input_set="0" />
+                <bind_vertex_input semantic="CHANNEL1" input_semantic="TEXCOORD" input_set="1" />
+                <bind_vertex_input semantic="CHANNEL2" input_semantic="TEXCOORD" input_set="2" />
+              </instance_material>
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+      <node id="Shape 1" name="Shape 1" type="NODE">
+        <instance_geometry url="#Shape1-mesh" name="Shape 1">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="aa_picture_waku_v" target="#aa_picture_waku_v">
+                <bind_vertex_input semantic="CHANNEL0" input_semantic="TEXCOORD" input_set="0" />
+                <bind_vertex_input semantic="CHANNEL1" input_semantic="TEXCOORD" input_set="1" />
+                <bind_vertex_input semantic="CHANNEL2" input_semantic="TEXCOORD" input_set="2" />
+              </instance_material>
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+      <node id="Shape 2" name="Shape 2" type="NODE">
+        <instance_geometry url="#Shape2-mesh" name="Shape 2">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="aa_picture_ura_v" target="#aa_picture_ura_v">
+                <bind_vertex_input semantic="CHANNEL0" input_semantic="TEXCOORD" input_set="0" />
+                <bind_vertex_input semantic="CHANNEL1" input_semantic="TEXCOORD" input_set="1" />
+                <bind_vertex_input semantic="CHANNEL2" input_semantic="TEXCOORD" input_set="2" />
+              </instance_material>
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#Scene" />
+  </scene>
+</COLLADA>

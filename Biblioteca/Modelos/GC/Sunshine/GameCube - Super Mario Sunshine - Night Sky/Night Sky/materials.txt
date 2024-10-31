@@ -1,0 +1,46 @@
+_01_VRshp
+=========
+  Textures:
+    - B_sterJimi_s
+        Scale: 2, 2
+    - B_sterJimi_s
+        Offset: 3, -1.2000000476837158
+        Scale: 3, 3
+
+  Ambient Colors:
+    - 128, 128, 128, 50
+
+
+
+_03_moon
+========
+  Textures:
+    - S_moon64
+
+  Ambient Colors:
+    - 128, 128, 128, 50
+
+
+
+_04_ring
+========
+  Textures:
+    - S_ring64
+
+  Ambient Colors:
+    - 128, 128, 128, 50
+
+  Color Registers:
+    - 255, 255, 255, 150
+
+
+
+_Enk
+====
+  Textures:
+    - B_skyNightCloud
+        Offset: -0.8781758546829224, 0
+        Scale: 5, 0.699999988079071
+
+  Ambient Colors:
+    - 128, 128, 128, 50

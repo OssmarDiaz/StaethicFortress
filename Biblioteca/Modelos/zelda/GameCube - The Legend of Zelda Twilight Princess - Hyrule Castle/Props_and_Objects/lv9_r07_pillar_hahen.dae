@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+  <asset />
+  <library_images>
+    <image id="G_pillar_hahen">
+      <init_from>G_pillar_hahen.png</init_from>
+    </image>
+  </library_images>
+  <library_materials>
+    <material id="L_hhashi02_0_v">
+      <instance_effect url="#Effect_L_hhashi02_0_v" />
+    </material>
+  </library_materials>
+  <library_effects>
+    <effect id="Effect_L_hhashi02_0_v">
+      <profile_COMMON>
+        <newparam sid="surface_L_hhashi02_0_v-diffuse">
+          <surface type="2D">
+            <init_from>G_pillar_hahen</init_from>
+            <format>A8R8G8B8</format>
+          </surface>
+        </newparam>
+        <newparam sid="sampler_L_hhashi02_0_v-diffuse">
+          <sampler2D>
+            <source>surface_L_hhashi02_0_v-diffuse</source>
+            <wrap_s>WRAP</wrap_s>
+            <wrap_t>WRAP</wrap_t>
+          </sampler2D>
+        </newparam>
+        <technique sid="common">
+          <phong>
+            <diffuse>
+              <texture texture="sampler_L_hhashi02_0_v-diffuse" texcoord="CHANNEL0" />
+            </diffuse>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <specular>
+              <color sid="specular">0 0 0 1</color>
+            </specular>
+          </phong>
+        </technique>
+      </profile_COMMON>
+    </effect>
+  </library_effects>
+  <library_geometries>
+    <geometry id="Shape0-mesh" name="Shape 0">
+      <mesh>
+        <source id="Shape0-position">
+          <float_array id="Shape0-position-array" count="90">0.07910156 -5.470703 1.572266 1.102539 -0.3359375 -10.15625 -12.86768 -0.3359375 -3.64502 1.102539 -0.3359375 -10.15625 -3.967285 5.809082 1.539551 -12.86768 -0.3359375 -3.64502 -12.86768 -0.3359375 -3.64502 -3.967285 5.809082 1.539551 -9.212402 -0.3359375 10.15625 -3.967285 5.809082 1.539551 12.86768 -0.3359375 8.685059 -9.212402 -0.3359375 10.15625 -9.212402 -0.3359375 10.15625 12.86768 -0.3359375 8.685059 0.07910156 -5.470703 1.572266 12.86768 -0.3359375 8.685059 9.371094 -0.3359375 -7.011719 0.07910156 -5.470703 1.572266 0.07910156 -5.470703 1.572266 9.371094 -0.3359375 -7.011719 1.102539 -0.3359375 -10.15625 9.371094 -0.3359375 -7.011719 -3.967285 5.809082 1.539551 1.102539 -0.3359375 -10.15625 0.07910156 -5.470703 1.572266 -12.86768 -0.3359375 -3.64502 -9.212402 -0.3359375 10.15625 -3.967285 5.809082 1.539551 9.371094 -0.3359375 -7.011719 12.86768 -0.3359375 8.685059</float_array>
+          <technique_common>
+            <accessor source="#Shape0-position-array" count="30" stride="3">
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Shape0-normal">
+          <float_array id="Shape0-normal-array" count="90">-9.155273E-05 -0.9992371 0.0383606 0.01364136 -0.02636719 -0.9995422 -0.9002991 -0.07061768 -0.4294434 0.01364136 -0.02636719 -0.9995422 -0.1368408 0.9899902 0.03381348 -0.9002991 -0.07061768 -0.4294434 -0.9002991 -0.07061768 -0.4294434 -0.1368408 0.9899902 0.03381348 -0.5905151 -0.06033325 0.8047485 -0.1368408 0.9899902 0.03381348 0.8304443 0.003723145 0.5570374 -0.5905151 -0.06033325 0.8047485 -0.5905151 -0.06033325 0.8047485 0.8304443 0.003723145 0.5570374 -9.155273E-05 -0.9992371 0.0383606 0.8304443 0.003723145 0.5570374 0.7631836 0.005401611 -0.6461182 -9.155273E-05 -0.9992371 0.0383606 -9.155273E-05 -0.9992371 0.0383606 0.7631836 0.005401611 -0.6461182 0.01364136 -0.02636719 -0.9995422 0.7631836 0.005401611 -0.6461182 -0.1368408 0.9899902 0.03381348 0.01364136 -0.02636719 -0.9995422 -9.155273E-05 -0.9992371 0.0383606 -0.9002991 -0.07061768 -0.4294434 -0.5905151 -0.06033325 0.8047485 -0.1368408 0.9899902 0.03381348 0.7631836 0.005401611 -0.6461182 0.8304443 0.003723145 0.5570374</float_array>
+          <technique_common>
+            <accessor source="#Shape0-normal-array" count="30" stride="3">
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Shape0-texcoord">
+          <float_array id="Shape0-texcoord-array" count="60">0.4646606 0.4886475 0.3620605 0.9059448 0.06774902 0.4925537 0.3620605 0.9059448 0.5039673 0.4967041 0.06774902 0.4925537 0.06774902 0.4925537 0.5039673 0.4967041 0.4221802 0.107666 0.5039673 0.4967041 0.9367065 0.5059814 0.4221802 0.107666 0.4221802 0.107666 0.9367065 0.5059814 0.4646606 0.4886475 0.9367065 0.5059814 0.7601318 0.8493042 0.4646606 0.4886475 0.4646606 0.4886475 0.7601318 0.8493042 0.3620605 0.9059448 0.7601318 0.8493042 0.5039673 0.4967041 0.3620605 0.9059448 0.4646606 0.4886475 0.06774902 0.4925537 0.4221802 0.107666 0.5039673 0.4967041 0.7601318 0.8493042 0.9367065 0.5059814</float_array>
+          <technique_common>
+            <accessor source="#Shape0-texcoord-array" count="30" stride="2">
+              <param name="S" type="float" />
+              <param name="T" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="Shape0-vertex">
+          <input semantic="POSITION" source="#Shape0-position" />
+        </vertices>
+        <triangles material="L_hhashi02_0_v" count="10">
+          <input semantic="VERTEX" source="#Shape0-vertex" offset="0" />
+          <input semantic="NORMAL" source="#Shape0-normal" offset="1" />
+          <input semantic="TEXCOORD" source="#Shape0-texcoord" offset="2" set="0" />
+          <p>2 2 2 1 1 1 0 0 0 5 5 5 4 4 4 3 3 3 8 8 8 7 7 7 6 6 6 11 11 11 10 10 10 9 9 9 14 14 14 13 13 13 12 12 12 17 17 17 16 16 16 15 15 15 20 20 20 19 19 19 18 18 18 23 23 23 22 22 22 21 21 21 26 26 26 25 25 25 24 24 24 29 29 29 28 28 28 27 27 27 </p>
+        </triangles>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_visual_scenes>
+    <visual_scene id="Scene" name="Scene">
+      <node id="Armature" name="Armature" type="NODE">
+        <matrix sid="transform">1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</matrix>
+      </node>
+      <node id="Shape 0" name="Shape 0" type="NODE">
+        <instance_geometry url="#Shape0-mesh" name="Shape 0">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="L_hhashi02_0_v" target="#L_hhashi02_0_v">
+                <bind_vertex_input semantic="CHANNEL0" input_semantic="TEXCOORD" input_set="0" />
+                <bind_vertex_input semantic="CHANNEL1" input_semantic="TEXCOORD" input_set="1" />
+                <bind_vertex_input semantic="CHANNEL2" input_semantic="TEXCOORD" input_set="2" />
+              </instance_material>
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#Scene" />
+  </scene>
+</COLLADA>

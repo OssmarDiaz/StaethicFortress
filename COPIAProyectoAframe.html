@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proyecto A-frame</title>
+  <!-- icono del la pestaña -->
+  <link rel="shortcut icon" href="./Biblioteca/Gifs/nerv.gif">
+  <!-- link de la libreria para leer las etiquetas de aframe -->
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+  <!-- scripts para enviroments-->
+  <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
+  <!-- script para gifs -->
+  <script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script>
+  <script src="https://rawgit.com/mayognaise/aframe-gif-component/master/dist/aframe-gif-component.min.js"></script>
+  <!-- para leer animación -->
+  <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+  <!-- script para texturas -->
+  <script src="https://cdn.jsdelivr.net/npm/aframe-enviropacks@latest/aframe-enviropacks.js"></script>
+  <!-- script para texto en 3d -->
+  <script
+    src="https://unpkg.com/aframe-text-geometry-component@^0.5.0/dist/aframe-text-geometry-component.min.js"></script>
+  <!-- script para interacciones -->
+  <script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script>
+  <!-- LIBRERIAS DE COLISIONES Y FÍSICAS-->
+  <script
+    src="https://cdn.rawgit.com/donmccurdy/aframe-physics-system/v4.0.1/dist/aframe-physics-system.min.js"></script>
+  <script src="https://unpkg.com/aframe-physics-extras@0.1.2/dist/aframe-physics-extras.min.js"></script>
+  <!-- scripts movimiento de la cámara -->
+  <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.0/dist/aframe-extras.min.js"> </script>
+  <script src="https://unpkg.com/super-hands@2.0.2/dist/super-hands.min.js"></script>
+  <!-- scripts para partículas-->
+  <script src="https://unpkg.com/aframe-animation-component@3.2.1/dist/aframe-animation-component.min.js"></script>
+  <script
+    src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
+  <script src="https://unpkg.com/aframe-extras.ocean@%5E3.5.x/dist/aframe-extras.ocean.min.js"></script>
+  <script src="https://unpkg.com/aframe-gradient-sky@1.2.0/dist/gradientsky.min.js"></script>
+  <!-- scipts para animacion de agua -->
+  <!-- <script src="https://unpkg.com/aframe-animation-component@3.2.1/dist/aframe-animation-component.min.js"></script> -->
+  <script src="https://unpkg.com/aframe-extras.ocean@%5E3.5.x/dist/aframe-extras.ocean.min.js"></script>
+  <!-- <script src="https://unpkg.com/aframe-animation-component@3.2.1/dist/aframe-animation-component.min.js"></script> -->
+  <!-- scripts para truco de transparencia en modelos 3d-->
+  <script>
+    AFRAME.registerComponent('model-opacity', {
+      schema: { default: 1.0 },
+      init: function () {
+        // this.el.addEventListener('model-loaded', this.update.bind(this));
+        this.el.addEventListener("model-loaded", () => {
+          const object3DEl = this.el.object3DMap;
+          ;
+
+
+
+
+          var mesh = this.el.getObject3D('mesh'); // For hand, the result is undefined
+          // var mesh = this.el.object3DMap.mesh; // For hand, the result is undefined
+          console.log(mesh);
+          var data = this.data;
+          if (!mesh) { return; }
+          mesh.traverse(function (node) {
+            if (node.isMesh) {
+              ;
+              node.material.opacity = data;
+              node.material.transparent = data < 1.0;
+              node.material.needsUpdate = true;
+            }
+          });
+        }, 2000)
+
+
+      },
+      update: function () {
+        var mesh = this.el.getObject3D('mesh');
+        var data = this.data;
+        if (!mesh) { return; }
+        mesh.traverse(function (node) {
+          if (node.isMesh) {
+            ;
+            node.material.opacity = data;
+            node.material.transparent = data < 1.0;
+            node.material.needsUpdate = true;
+          }
+        });
+      }
+    });
+  </script>
+
+
+
+
+
+
+</head>
+
+<body>
+ 
+  
+  <a-scene physics="gravity:-25; debug:true" >
+
+
+    <a-assets>
+   
+      <!-- Texturas -->
+     
+      <img id="paredObs" src="./Biblioteca/Texturas/GameCube - Paper Mario The Thousand-Year Door - Palace of Shadow Backgrounds/Palace of Shadow Stages/aji_2.png"><!-- paredes -->
+      <img id="pisoObs"  src="./Biblioteca/Texturas/GameCube - Paper Mario The Thousand-Year Door - Palace of Shadow Backgrounds/Palace of Shadow Stages/las_yuka_1.png"><!-- piso -->
+     
+      <!-- Videos -->
+     
+      <!-- Imagenes -->
+      <img id="gato" src="./Biblioteca/Imagenes/gato.jpg">
+      <img id="cielo" src="./Biblioteca/Imagenes/cielo.jpg">
+      <!-- Modelos-->
+      <a-asset-item id="witch" src="./Biblioteca/Modelos/little_witch_academia/scene.gltf"></a-asset-item>
+      <a-asset-item id="water" src="./Biblioteca/Modelos/water_cooler/scene-scaled.gltf"></a-asset-item>
+      <a-asset-item id="skel" src="./Biblioteca/Modelos/remains/scene-separate1.gltf"></a-asset-item>
+      <a-asset-item id="bird" src="./Biblioteca/Modelos/phoenix_bird/scene.gltf"></a-asset-item>
+      <a-asset-item id="metroid"
+        src="./Biblioteca/Modelos/metroid_primecreaturesmetroid_prime_form_2/scene_metroid.gltf"></a-asset-item>
+<a-assets-item id="planetario3D" src="./Biblioteca/Modelos/orrery/scene.gltf"></a-assets-item>
+
+
+
+        <!-- escenarios -->
+
+        <a-asset-item id="planetarium" src="./Biblioteca/Modelos/PMTTYD/planetariumSTG.gltf"></a-asset-item>
+        <a-asset-item id="planetariumttyd" src="./Biblioteca/Modelos/PMTTYD/observatorio.gltf"></a-asset-item>
+        <a-asset-item id="palacioWall" src="./Biblioteca/Modelos/PMTTYD/paredPalacio.gltf"></a-asset-item>
+     
+       </a-assets>
+
+    <a-entity
+    environment="preset: tron;  skyType:gradient; horizonColor:#affdf2; grid:1x1; gridColor:#fd4444; ground:hills; groundTexture:#pisoObs;  fog:0"></a-entity>
+<!-- 
+    <a-entity movement-controls kinematic-body>
+      <a-entity id="camera" wasd-controls="enabled: true" camera position="0 2.5 0" look-controls> </a-entity>
+    </a-entity>
+   -->
+
+   <a-entity movement-controls kinematic-body>
+    <a-entity id="camera" camera position="0 2.5 0" look-controls light="intensity:2; type:spot; penumbra:1; distance:50; angle:45"> 
+<a-entity cursor="fuse: true; fuseTimeout: 500" position="0 0 -1" geometry="primitive:ring; radiusInner:0.02; radiusOuter:0.023;" material="color:white; shader:flat" raycaster="objects: clickable"></a-entity>
+    </a-entity>
+    </a-entity>
+
+
+    <a-plane static-body position="0.0 0.0 0" rotation="-90 0 0" color="#0e23aa" scale="200 200"
+    opacity="0"></a-plane>
+    <!-- Escalera en espiral -->
+
+<!-- Spiral Staircase -->
+<a-entity id="staircase"></a-entity> <!-- Adjust the position to place it correctly in the scene -->
+
+
+<!-- Paredes internas de la torre -->
+
+<!-- Torre Hexagonal -->
+<a-box position="25 10 0" width="1" height="80" depth="28.7" material="src:#paredObs; side:double; alphaTest:0.5;" repeat = "10 10" static-body rotation="0 0 0"></a-box>
+<a-box position="12.5 10 -21.65" width="1" height="80" depth="28.7" material="src:#paredObs; side:double; alphaTest:0.5;" repeat = "10 10" static-body
+  rotation="0 60 0"></a-box>
+<a-box position="-12.5 10 -21.65" width="1" height="80" depth="28.7" material="src:#paredObs; side:double; alphaTest:0.5;" repeat = "10 10" static-body
+  rotation="0 120 0"></a-box>
+<a-box position="-25 10 0" width="1" height="80" depth="28.7" material="src:#paredObs; side:double; alphaTest:0.5;" repeat = "10 10" static-body
+  rotation="0 180 0"></a-box>
+<a-box position="-12.5 10 21.65" width="1" height="80" depth="28.7" material="src:#paredObs; side:double; alphaTest:0.5;" repeat = "10 10" static-body
+  rotation="0 240 0"></a-box>
+<a-box position="12.5 10 21.65" width="1" height="80" depth="28.7" material="src:#paredObs; side:double; alphaTest:0.5;" repeat = "10 10" static-body
+  rotation="0 300 0"></a-box>
+
+  <!-- Primer piso -->
+
+  <a-entity static-body
+  geometry="primitive: ring; radiusInner: 10; radiusOuter: 50; segmentsTheta: 64" 
+  rotation="-90 0 0" 
+  position="0 10 0" 
+  material="color: #8B8B8B; side: double"
+  static-body>
+</a-entity>
+
+
+<a-entity static-body
+  geometry="primitive: ring; radiusInner: 10; radiusOuter: 50; segmentsTheta: 64" 
+  rotation="-90 0 0" 
+  position="0 20 0" 
+  material="color: #8B8B8B; side: double">
+</a-entity>
+
+
+<a-entity static-body
+  geometry="primitive: ring; radiusInner: 10; radiusOuter: 50; segmentsTheta: 64" 
+  rotation="-90 0 0" 
+  position="0 30 0" 
+  material="color: #8B8B8B; side: double"
+  static-body>
+</a-entity>
+
+
+<!-- Modelos de escenario -->
+
+<!-- <a-entity gltf-model="#planetarium" position="0 0 -18" rotation="0 0 0" scale="0.5 0.5 0.5" model-opacity="1"></a-entity>
+ -->
+<a-entity gltf-model="#planetarium" 
+position="-9.04477 0.14098 -16.81771" rotation="0 30.5 0" scale="0.5 0.5 0.5" model-opacity="1"></a-entity>
+<a-entity gltf-model="#palacioWall" position="11.5 0 20.65" rotation="0 -149.620 0" scale="0.5 0.5 0.5" model-opacity="1"></a-entity>
+<a-entity gltf-model="#planetario3D" position="0 40 0" rotation="0 0 0" scale="1.5 1.5 1.5" model-opacity="1"></a-entity>
+
+
+<a-entity geometry="primitive:dodecahedron" rotation="0 45 0" position="-8.612 1.319 2.014" scale="1.6 1.6 1.6"
+         material="color:green" animation__mouseenter="property: components.material.material.color; type: color; to: blue; startEvents: mouseenter; dur: 500"
+          animation__mouseleave="property: components.material.material.color; type: color; to: green; startEvents: mouseleave; dur: 3000"></a-entity>
+
+<e-entity 
+
+<a-entity geometry="primitive:dodecahedron" rotation="10 45 0" position="-3.612 1.319 2.014" scale="1.6 1.6 1.6"
+          material="color:green" animation__mouseenter="property: rotation; to:0 -390 0; easing:linear; dur:2000; startEvents: mouseenter; " 
+          animation__mouseleave="property: rotation; to:0 45 0; easing:linear; dur:2000; startEvents: mouseleave; "></a-entity>
+
+
+<a-entity geometry="primitive:dodecahedron" rotation="10 45 0" position="-6.612 1.319 2.014" scale="1.6 1.6 1.6"
+          material="plastic" animation__mouseenter="property: position; to:-6.612 5.319 2.014; easing:linear; dur:2000; startEvents: mouseenter; " 
+          animation__mouseleave="property: position; to:-6.612 1.319 2.014; easing:linear; dur:2000; startEvents: mouseleave; "></a-entity>
+          
+          
+<a-entity text-geometry="value: Welcome :D; size: 8; letterSpacing:5; bevelEnabled: true; bevelSize: 1.150; curveSegments: 15"
+          enviropack-material="material: bark_brown_02; displacementMap: false" rotation="0 -90 0"
+          position="0 5.233 0" scale="0.190 0.190 0.05"  animation="property: material.opacity; to: 0; dur: 2000; dir: alternate; loop: true"></a-entity>></a-entity>
+<!-- Texto con materiales y animacion de opacidad:
+                ground-grass-rock, ground-sandstone, ground-wood-floor, 
+                ground-snow, ground-forest, bark, gold, metal, plastic,
+                 fabric, concrete, rock, wood, planks, snow. Or could also be a "raw" material: Fabric026, Metal009, Metal035, 
+                 Plastic, Snow003, Snow004, Wood027, WoodFloor041, 
+                aerial_grass_rock, bark_brown_02, brown_planks_04, forrest_ground_03, mossy_rock, rock_05, sandstone_cracks-->
+  </a-scene>
+<!--  Scripts de objetos en la escena -->
+
+
+<script>
+  // Parametros de la escalera en espiral
+  const numSteps = 100;      
+  const stepHeight = 0.5;    
+  const radius = 10;          
+  const stepWidth = 5;     
+  const stepDepth = 1.5;    
+  const rotationPerStep = 15; 
+
+  // Reference to the staircase entity
+  const staircase = document.getElementById('staircase');
+
+  for (let i = 0; i < numSteps; i++) {
+    const angleDeg = i * rotationPerStep;
+    const angleRad = THREE.Math.degToRad(angleDeg); // Convert degrees to radians
+
+    // Calculate position of the step based on spiral formula
+    const x = radius * Math.cos(angleRad);
+    const y = i * stepHeight;
+    const z = radius * Math.sin(angleRad);
+
+    // Create the step
+    const step = document.createElement('a-box');
+    step.setAttribute('width', stepWidth);
+    step.setAttribute('height', 0.1); // Thickness of the step
+    step.setAttribute('depth', stepDepth);
+    step.setAttribute('color', '#8B4513'); // Step color (brown for wood effect)
+
+    // Set the position and rotation of the step
+    step.setAttribute('position', `${x} ${y} ${z}`);
+    step.setAttribute('rotation', `0 ${-angleDeg} 0`); // Rotate step to face the center of the spiral
+    step.setAttribute('static-body', ''); // Make the step static so it doesn't fall
+
+    // Add the step to the staircase
+    staircase.appendChild(step);
+  }
+</script>
+</body>
+
+</html>

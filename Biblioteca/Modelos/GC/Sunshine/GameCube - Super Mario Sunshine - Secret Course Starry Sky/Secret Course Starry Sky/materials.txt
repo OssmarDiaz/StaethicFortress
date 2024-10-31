@@ -1,0 +1,155 @@
+_01_Rail
+========
+  Textures:
+    - B_exsky_Rail
+        Offset: 0.4236672818660736, 0
+        Center: 0.5, 0.5
+        Scale: 1.25, 0.75
+        Rotation: 0
+
+  Material Colors:
+    - 5, 24, 102, 255
+    - 5, 24, 102, 255
+
+
+
+_01_Rail_1
+==========
+  Textures:
+    - B_exsky_Rail
+        Offset: 0.4236672818660736, 0
+        Center: 0.5, 0.5
+        Scale: 1.5, 1
+        Rotation: 0
+
+  Material Colors:
+    - 47, 43, 14, 255
+    - 47, 43, 14, 255
+
+
+
+_01_Rail_3
+==========
+  Textures:
+    - B_exsky_Rail
+        Offset: 0.4236672818660736, 0
+        Center: 0.5, 0.5
+        Scale: 1.75, 1
+        Rotation: 0
+
+  Material Colors:
+    - 41, 27, 6, 255
+    - 41, 27, 6, 255
+
+
+
+_01_Rail_5
+==========
+  Textures:
+    - B_exsky_Rail
+        Offset: 0.4236672818660736, 0
+        Center: 0.5, 0.5
+        Scale: 1.75, 1
+        Rotation: 0
+
+  Material Colors:
+    - 12, 19, 11, 255
+    - 12, 19, 11, 255
+
+
+
+_01_Rail_6
+==========
+  Textures:
+    - B_exsky_Train
+        Offset: 3.468416929244995, 0
+        Center: 1, 1
+        Scale: 1, 1.0173735618591309
+        Rotation: 0
+
+  Material Colors:
+    - 67, 17, 17, 255
+    - 67, 17, 17, 255
+
+  Color Registers:
+    - 40, 98, 7, 255
+    - 255, 255, 255, 255
+    - 255, 255, 255, 255
+    - 0, 0, 0, 0
+
+
+
+_cloud
+======
+  Textures:
+    - B_exsky_Silen
+        Offset: 0, 0
+        Center: 0.5, 0.5
+        Scale: 0.9059967994689941, 1
+        Rotation: 0
+
+  Material Colors:
+    - 255, 255, 255, 133
+    - 255, 255, 255, 133
+
+
+
+_o28
+====
+  Textures:
+    - B_sters
+        Offset: 0.9838235378265381, 0.9838235378265381
+        Center: 0.5, 0.5
+        Scale: 1, 1
+        Rotation: 0
+    - B_sunsetgrade
+        Offset: 0, 0
+        Center: 0.5, 0.5
+        Scale: 1, 1
+        Rotation: 0
+
+  Material Colors:
+    - 255, 255, 255, 255
+    - 255, 255, 255, 255
+
+  Color Registers:
+    - 12, 44, 77, 255
+    - 12, 20, 4, 232
+    - 255, 255, 255, 255
+    - 0, 0, 0, 0
+
+
+
+_plane
+======
+  Textures:
+    - B_exsky_Aplane
+        Offset: 2.393524646759033, 0
+        Center: 0.5, 0.5
+        Scale: 0.5, 1
+        Rotation: 0
+
+  Material Colors:
+    - 255, 255, 255, 255
+    - 255, 255, 255, 255
+
+  Color Registers:
+    - 24, 73, 36, 255
+    - 255, 255, 255, 255
+    - 255, 255, 255, 255
+    - 0, 0, 0, 0
+
+
+
+_silen
+======
+  Textures:
+    - B_exsky_Silen
+        Offset: 0, 0
+        Center: 0.5, 0.5
+        Scale: 1, 1
+        Rotation: 0
+
+  Material Colors:
+    - 81, 15, 0, 255
+    - 81, 15, 0, 255

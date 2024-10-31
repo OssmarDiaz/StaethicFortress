@@ -1,0 +1,25 @@
+_mat_telesaBlock
+================
+  Textures:
+    - K_telesa_eye
+    - H_toon_2_4i
+
+  Ambient Colors:
+    - 128, 128, 128, 50
+
+  Color Registers:
+    - 600, 270, 220, 255
+
+
+
+_mat_telesaBlock_eye
+====================
+  Textures:
+    - K_telesa_eye
+    - H_toon_2_4i
+
+  Ambient Colors:
+    - 128, 128, 128, 50
+
+  Color Registers:
+    - 350, 350, 350, 255

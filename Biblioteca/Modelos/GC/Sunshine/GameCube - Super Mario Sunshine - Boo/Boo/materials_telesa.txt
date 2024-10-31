@@ -1,0 +1,65 @@
+_mat_body
+=========
+  Textures:
+    - K_telesa_body
+    - P_ms_indwp3_ia
+        Scale: 0.869140625, 0.869140625
+    - H_ma_rak_dummy
+    - H_toon_2_4i
+
+  Ambient Colors:
+    - 128, 128, 128, 50
+
+  Color Registers:
+    - 350, 350, 350, 255
+
+
+
+_mat_eye
+========
+  Textures:
+    - K_telesa_eye
+    - P_ms_indwp3_ia
+        Scale: 0.869140625, 0.869140625
+    - H_ma_rak_dummy
+    - H_toon_2_4i
+
+  Ambient Colors:
+    - 128, 128, 128, 50
+
+  Color Registers:
+    - 350, 350, 350, 255
+
+
+
+_mat_kiba
+=========
+  Textures:
+    - K_telesa_kiba
+    - P_ms_indwp3_ia
+        Scale: 0.869140625, 0.869140625
+    - H_ma_rak_dummy
+    - H_toon_2_4i
+
+  Ambient Colors:
+    - 128, 128, 128, 50
+
+  Color Registers:
+    - 350, 350, 350, 255
+
+
+
+_mat_mouth
+==========
+  Textures:
+    - K_telesa_body
+    - P_ms_indwp3_ia
+        Scale: 0.869140625, 0.869140625
+    - H_ma_rak_dummy
+    - H_toon_2_4i
+
+  Ambient Colors:
+    - 128, 128, 128, 50
+
+  Color Registers:
+    - 350, 350, 350, 255

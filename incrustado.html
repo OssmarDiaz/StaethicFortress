@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <!-- Script para leer a-frame -->
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+   <!-- scripts para enviroments-->
+   <script src="https://unpkg.com/aframe-environment-component@1.2.0/dist/aframe-environment-component.min.js"></script>
+<!-- script para texturas -->
+<script src="https://cdn.jsdelivr.net/npm/aframe-enviropacks@latest/aframe-enviropacks.js"></script>
+
+
+
+    <title> Mirror-space </title>
+  </head>
+  <body>
+    <div class="espacio-3D" id="myEmbeddedScene" style="width: 100%; height: 100%;"></div>
+    <a-scene embedded>
+
+
+        <!-- camara -->
+         <a-camera>
+            <a-cursor></a-cursor>
+         </a-camera>
+
+
+
+         <!-- environment -->
+         <a-entity
+         environment="active: true; skyType: gradient; skyColor: #75b2f5; horizonColor: #9ec3ea; lightPosition: 1 4 1s; fog: 0.7; flatShading: true; ground: canyon; groundYScale: 3.5699999999999994; groundTexture: checkerboard; groundColor: #fee33f; groundColor2: #f8eca2; dressing: stones; dressingAmount: 100; dressingColor: #e7cdc6; dressingScale: 3.8299999999999996; grid: 1x1; dressingOnPlayArea: 0.02; gridColor: #39d2f2; shadowSize: 10.52; preset: starry"
+animation__cielo="property:environment.skyColor; to: #ec00d3; dur: 8000; easing: linear; loop: true; dir: alternate" animation__pisos="property:environment.groundColor; to: #8FF7FF; dur: 8000; easing: linear; loop: true; dir: alternate"></a-entity>
+
+      <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
+      <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
+      <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
+      <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
+      <a-sky color="#ECECEC"></a-sky>
+    </a-scene>
+  </body>
+</html>
