@@ -1,0 +1,66 @@
+#  ==========================================================================
+#  Wavefront Material file
+#  Exported by Red-i Productions' "Riptide"
+#  (a free plugin for Cinema 4D PC & Mac, R7.3 or later)
+#  
+#  Red-i Productions
+#  http://skinprops.com
+#  
+#  ==========================================================================
+
+newmtl 8309ca6f_dds
+illum 2
+Kd 0.800000 0.800000 0.800000
+map_Kd 8309ca6f.png
+map_d 8309ca6f.png
+
+newmtl 03f7e5c4_dds
+illum 2
+Kd 0.800000 0.800000 0.800000
+map_Kd 03f7e5c4.png
+map_d 03f7e5c4.png
+
+newmtl b924ccfc_dds
+illum 2
+Kd 0.800000 0.800000 0.800000
+map_Kd b924ccfc.png
+
+newmtl 8e61fa09_dds
+illum 2
+Kd 0.800000 0.800000 0.800000
+map_Kd 8e61fa09.png
+
+newmtl 12b5a543_dds
+illum 2
+Kd 0.800000 0.800000 0.800000
+map_Kd 12b5a543.png
+
+newmtl 3269c3cf_dds
+illum 2
+Kd 0.800000 0.800000 0.800000
+map_Kd 3269c3cf.png
+
+newmtl 95d1482e_dds
+illum 2
+Kd 0.800000 0.800000 0.800000
+map_Kd 95d1482e.png
+
+newmtl 4c2680df_dds
+illum 2
+Kd 0.800000 0.800000 0.800000
+map_Kd 4c2680df.png
+
+newmtl ba36bae6_dds
+illum 2
+Kd 0.800000 0.800000 0.800000
+map_Kd ba36bae6.png
+
+newmtl 30abae25_dds
+illum 2
+Kd 0.800000 0.800000 0.800000
+map_Kd 30abae25.png
+
+newmtl 2b0b94f6_dds
+illum 2
+Kd 0.800000 0.800000 0.800000
+map_Kd 2b0b94f6.png

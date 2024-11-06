@@ -44,6 +44,13 @@
   <script src="https://unpkg.com/aframe-extras.ocean@%5E3.5.x/dist/aframe-extras.ocean.min.js"></script>
   <!-- <script src="https://unpkg.com/aframe-animation-component@3.2.1/dist/aframe-animation-component.min.js"></script> -->
   <!-- scripts para truco de transparencia en modelos 3d-->
+  <script src="js/aframe-master-v1.3.0.min.js"></script>
+	<script src="js/aframe-environment-component.min.js"></script>
+	<script src="js2/extended-wasd-controls.js"></script>
+	<script src="js2/parser.js"></script>
+	<script src="js2/aframe-parametric-curve.js"></script>
+	<script src="js2/aframe-tube-geometry.js"></script>
+	<script src="js2/aframe-curve-follow.js"></script>
   <script>
     AFRAME.registerComponent('model-opacity', {
       schema: { default: 1.0 },
@@ -90,71 +97,6 @@
   </script>
 
 
-<!--   <script>
-    AFRAME.registerComponent('stair', {
-      schema: {
-        steps: { type: 'number', default: 10 },
-        radius: { type: 'number', default: 1 },
-        height: { type: 'number', default: 0.1 },
-        width: { type: 'number', default: 1 },
-        color: { type: 'color', default: '#333' }
-      },
-      init: function () {
-        var data = this.data;
-        var el = this.el;
-        var position = el.getAttribute('position');
-        var step = data.height;
-        var angle = 0;
-        var stepAngle = 360 / data.steps;
-        var stepWidth = data.width / data.steps;
-        var stepHeight = data.height / data.steps;
-        var stepRadius = data.radius / data.steps;
-        var stepColor = data.color;
-        var stepGeometry = new THREE.BoxGeometry(stepWidth, stepHeight, stepRadius);
-        var stepMaterial = new THREE.MeshBasicMaterial({ color: stepColor });
-        var stepMesh;
-        for (var i = 0; i < data.steps; i++) {
-          stepMesh = new THREE.Mesh(stepGeometry, stepMaterial);
-          stepMesh.position.x = position.x + data.radius * Math.cos(THREE.Math.degToRad(angle));
-          stepMesh.position.y = position.y + step * i;
-          stepMesh.position.z = position.z + data.radius * Math.sin(THREE.Math.degToRad(angle));
-          stepMesh.rotation.y = THREE.Math.degToRad(angle);
-          el.setObject3D('step' + i, stepMesh);
-          angle += stepAngle;
-        }
-      },
-      update: function () {
-        var data = this.data;
-        var el = this.el;
-        var position = el.getAttribute('position');
-        var step = data.height;
-        var angle = 0;
-        var stepAngle = 360 / data.steps;
-        var stepWidth = data.width / data.steps;
-        var stepHeight = data.height / data.steps;
-        var stepRadius = data.radius / data.steps;
-        var stepColor = data.color;
-        var stepGeometry = new THREE.BoxGeometry(stepWidth, stepHeight, stepRadius);
-        var stepMaterial = new THREE.MeshBasicMaterial({ color: stepColor });
-        var stepMesh;
-        for (var i = 0; i < data.steps; i++) { // Corrected from 'data steps' to 'data.steps'
-          stepMesh = el.getObject3D('step' + i);
-          stepMesh.position.x = position.x + data.radius * Math.cos(THREE.Math.degToRad(angle));
-          stepMesh.position.y = position.y + step * i;
-          stepMesh.position.z = position.z + data.radius * Math.sin(THREE.Math.degToRad(angle));
-          stepMesh.rotation.y = THREE.Math.degToRad(angle);
-          angle += stepAngle;
-        }
-      },
-      remove: function () {
-        // Remove the stair steps when the component is removed
-        var el = this.el;
-        for (var i = 0; i < this.data.steps; i++) {
-          el.removeObject3D('step' + i);
-        }
-      }
-    });
-  </script> -->
 
 
 
@@ -164,7 +106,7 @@
 <body>
  
   
-  <a-scene stats physics="gravity:-25; debug:false" >
+  <a-scene stats physics="gravity:-25; debug:true" >
 
 
     <a-assets>
@@ -179,7 +121,20 @@
 <img id="paredFina" src="./Biblioteca/Texturas/GameCube - Paper Mario The Thousand-Year Door - Palace of Shadow Backgrounds/Palace of Shadow Stages/las_kabe_05.png">
 <img id="falsoVidrio" src="./Biblioteca/Modelos/GC/PP/GameCube - Paper Mario The Thousand-Year Door - Palace of Shadow/Palace of Shadow/las_glass_05.png">
 <img id="falsoVidrio2" src="./Biblioteca/Modelos/GC/PP/GameCube - Paper Mario The Thousand-Year Door - Palace of Shadow/Palace of Shadow/las_kazari_08.png">
+<img id="falsoVidrio3" src="./Biblioteca/Modelos/GC/PP/GameCube - Paper Mario The Thousand-Year Door - Palace of Shadow/Palace of Shadow/las_glass_06.png">
 <img id="soclo" src="./Biblioteca/Modelos/GC/PP/GameCube - Paper Mario The Thousand-Year Door - Palace of Shadow/Palace of Shadow/las_ohaka_1.png">
+<img id="soclo2" src="./Biblioteca/Modelos/GC/PP/GameCube - Paper Mario The Thousand-Year Door - Palace of Shadow/Palace of Shadow/las_kazari_06.png">
+<img id="pisoCastillo" src="./Biblioteca/Modelos/GC/PP/GameCube - Paper Mario The Thousand-Year Door - Hooktail Castle/Hooktail Castle/gon_yuka_01.png">
+<img id="paredContenedor" src="./Biblioteca/Modelos/GC/PP/GameCube - Paper Mario The Thousand-Year Door - Hooktail Castle/Hooktail Castle/gon_kabe_09.png">
+<img id="picosBarda" src="./Biblioteca/Modelos/GC/PP/GameCube - Paper Mario The Thousand-Year Door - Hooktail Castle/Hooktail Castle/gon_toge_01.png">
+<img id="tierra" src="./Biblioteca/Modelos/GC/PP/GameCube - Paper Mario The Thousand-Year Door - Hooktail Castle/Hooktail Castle/gon_kabe_09_cyosbikusa.png">
+<img id="arbusto" src="./Biblioteca/Modelos/GC/PP/GameCube - Paper Mario The Thousand-Year Door - Cortez/Cortez/hone2.png">
+<img id="pino" src="./Biblioteca/Modelos/GC/PP/GameCube - Paper Mario The Thousand-Year Door - Creepy Steeple Backgrounds/Creepy Steeple Stages/gra_hai_ki_2.png">
+<img id="arbusto2" src="./Biblioteca/Modelos/GC/PP/GameCube - Paper Mario The Thousand-Year Door - The Great Tree/The Great Tree/mri_tree_04.png">
+<img id="nenufar" src="./Biblioteca/Modelos/GC/PP/GameCube - Paper Mario The Thousand-Year Door - The Great Tree/The Great Tree/mri_mizu_kusa_01.png">
+<img id="tierra2" src="./Biblioteca/Modelos/GC/PP/GameCube - Paper Mario The Thousand-Year Door - Creepy Steeple/Creepy Steeple/jin_kabe04.png">
+
+
       <!-- Videos -->
      
       <!-- Imagenes -->
@@ -187,12 +142,7 @@
       <img id="cielo" src="./Biblioteca/Imagenes/cielo.jpg">
       <imf id="cielo2" src="./Biblioteca/Modelos/GC/Sunshine/GameCube - Super Mario Sunshine - Night Sky/Night Sky/B_sterJimi_s.png">
       <!-- Modelos-->
-      <a-asset-item id="witch" src="./Biblioteca/Modelos/little_witch_academia/scene.gltf"></a-asset-item>
-      <a-asset-item id="water" src="./Biblioteca/Modelos/water_cooler/scene-scaled.gltf"></a-asset-item>
-      <a-asset-item id="skel" src="./Biblioteca/Modelos/remains/scene-separate1.gltf"></a-asset-item>
-      <a-asset-item id="bird" src="./Biblioteca/Modelos/phoenix_bird/scene.gltf"></a-asset-item>
-      <a-asset-item id="metroid"
-        src="./Biblioteca/Modelos/metroid_primecreaturesmetroid_prime_form_2/scene_metroid.gltf"></a-asset-item>
+
 <a-assets-item id="planetario3D" src="./Biblioteca/Modelos/PMTTYD/observatorio.gltf"></a-assets-item>
       <a-asset-item id="torre" src="./Biblioteca/Modelos/GC/GameCube - Super Mario Sunshine - Sand Bird Tower/torre.gltf"></a-asset-item>
 
@@ -205,8 +155,52 @@
         <a-asset-item id="stageLight"  src="./Biblioteca/Modelos/GC/PP/GameCube - Paper Mario The Thousand-Year Door - Stage Light/stageLight.gltf"></a-asset-item>
         <a-asset-item id="estructuraAux1" src="./Biblioteca/Modelos/zelda/estructuraAux1.gltf"></a-asset-item>
         <a-asset-item id="estructuraAux2" src="./Biblioteca/Modelos/zelda/estructuraAux2.2.gltf"></a-asset-item>
+        <a-asset-item id="puenteTorre" src="./Biblioteca/Modelos/GC/PP/GameCube - Paper Mario The Thousand-Year Door - Hooktail Castle/puente.gltf"></a-asset-item>
 <a-asset-item id="greatTree" src="./Biblioteca/Modelos/escenarios/greatTree.gltf"></a-asset-item>
 <a-asset-item id="moon" src="./Biblioteca/Modelos/escenarios/moon.gltf"></a-asset-item>
+
+<!-- Objetos -->
+<a-asset-item id="bird" src="./Biblioteca/Modelos/objetos/GameCube - Super Mario Sunshine - Sand Bird/bird.gltf"></a-asset-item>
+<a-asset-item id="manta" src="./Biblioteca/Modelos/objetos/manta.gltf"></a-asset-item>
+
+
+<!-- Armas -->
+
+<a-asset-item id="armCannon" src="./Biblioteca/Modelos/Armas/GameCube - Metroid Prime - Arm Cannon/armcannon.gltf"></a-asset-item>
+<a-asset-item id="plasmaCutter" src="./Biblioteca/Modelos/Armas/PC Computer - Dead Space - Plasmacutter/plasmacutter.gltf"></a-asset-item>
+<a-asset-item id="sonicScrewdriver" src="./Biblioteca/Modelos/Armas/PC Computer - Doctor Who The Adventure Games - Sonic Screwdriver/screwdriver.gltf"></a-asset-item>
+<a-asset-item id="BFG" src="./Biblioteca/Modelos/Armas/PC Computer - DOOM Eternal - BFG/BFG.gltf"></a-asset-item>
+<a-asset-item id="crowbar" src="./Biblioteca/Modelos/Armas/PC Computer - Half-Life 2 - Crowbar/crowbar.gltf"></a-asset-item>
+<a-asset-item id="energySword" src="./Biblioteca/Modelos/Armas/PC Computer - Halo Combat Evolved - Energy Sword/energysword.gltf"></a-asset-item>
+<a-asset-item id="needler" src="./Biblioteca/Modelos/Armas/PC Computer - Halo Combat Evolved - Needler/needler.gltf"></a-asset-item>
+<a-asset-item id="portalGun" src="./Biblioteca/Modelos/Armas/PC Computer - Portal - Portal Gun Prop/portalgun.gltf"></a-asset-item>
+<a-asset-item id="lightsaber" src="./Biblioteca/Modelos/Armas/PlayStation 2 - Silent Hill 3 - Lightsaber/lightsaber.gltf"></a-asset-item>
+<a-asset-item id="rick" src="./Biblioteca/Modelos/Armas/ricks_portal_gun/scene.gltf"></a-asset-item>
+<a-asset-item id="bplasmaRifle" src="./Biblioteca/Modelos/Armas/Xbox 360 - Halo 3 ODST - Brute Plasma Rifle/bplasmarifle.gltf"></a-asset-item>
+
+<!-- Creaturas -->
+<a-asset-item id="infantMetroid" src="./Biblioteca/Modelos/Creaturas/3DS - Metroid Samus Returns - Infant Metroid/metroid.gltf"></a-asset-item>
+<a-asset-item id="godzilla" src="./Biblioteca/Modelos/Creaturas/Dreamcast - Godzilla Generations Maximum Impact - Godzilla/godzilla.gltf"></a-asset-item>
+<a-asset-item id="mars" src="./Biblioteca/Modelos/Creaturas/mars_people_3december2020_day_21/scene.gltf"></a-asset-item>
+<a-asset-item id="rancor" src="./Biblioteca/Modelos/Creaturas/Mobile - LEGO Star Wars The Yoda Chronicles - Rancor/rancor.gltf"></a-asset-item>
+<a-asset-item id="dalek" src="./Biblioteca/Modelos/Creaturas/PC Computer - Doctor Who The Adventure Games - Dalek Emperor/dalekEmp.gltf"></a-asset-item>
+<a-asset-item id="ghoul" src="./Biblioteca/Modelos/Creaturas/PC Computer - Fallout New Vegas - Ghoulreaver/ghoul.gltf"></a-asset-item>
+<a-asset-item id="r2d2" src="./Biblioteca/Modelos/Creaturas/PC Computer - Star Wars Episode I The Phantom Menace - R2-D2/r2d2.gltf"></a-asset-item>
+<a-asset-item id="alien" src="./Biblioteca/Modelos/Creaturas/ps1low_poly_xenomorph_1979_alien/scene.gltf"></a-asset-item>
+<a-asset-item id="arachnid" src="./Biblioteca/Modelos/Creaturas/starship_troopers_arachnid_warrior/scene.gltf"></a-asset-item>
+
+<!-- Naves -->
+<a-asset-item id="bebop" src="./Biblioteca/Modelos/vehiculos/cowboy_bebop_swordfish_ii/scene.gltf"></a-asset-item>
+<a-asset-item id="falcon" src="./Biblioteca/Modelos/vehiculos/GameCube - LEGO Star Wars II The Original Trilogy - Millenium Falcon/mfalcon.gltf"></a-asset-item>
+<a-asset-item id="greatfox" src="./Biblioteca/Modelos/vehiculos/GameCube - Star Fox Adventures - Great Fox/gfox.gltf"></a-asset-item>
+<a-asset-item id="ufo" src="./Biblioteca/Modelos/vehiculos/Mobile - Metal Slug Awakening - Firefly Martian UFO/UFO.gltf"></a-asset-item>
+<a-asset-item id="uss" src="./Biblioteca/Modelos/vehiculos/Mobile - Star Trek Fleet Command - USS Saladin/uss.gltf"></a-asset-item>
+<a-asset-item id="tardis" src="./Biblioteca/Modelos/vehiculos/PC Computer - Doctor Who The Adventure Games - The TARDIS/tardis.gltf"></a-asset-item>
+<a-asset-item id="destroyer" src="./Biblioteca/Modelos/vehiculos/PC Computer - Star Wars Battlefront 2 - Imperial Star Destroyer Low-poly/destroyer.gltf"></a-asset-item>
+<a-asset-item id="samusship" src="./Biblioteca/Modelos/vehiculos/Wii - Metroid Other M - Samus Ship/samusship.gltf"></a-asset-item>
+<a-asset-item id="rex" src="./Biblioteca/Modelos/vehiculos/Wii - Super Smash Bros Brawl - Metal Gear REX/rex.gltf"></a-asset-item>
+<a-asset-item id="covenant" src="./Biblioteca/Modelos/vehiculos/Xbox 360 - Halo Reach - Capital Ship/covenant.gltf"></a-asset-item>
+
 
 
        </a-assets>
@@ -225,11 +219,9 @@
     opacity="1" material="src:#pisoObs " repeat="100 100"></a-plane>
     <!-- Escalera en espiral -->
 
-<!-- Spiral Staircase -->
-<a-entity id="staircase"></a-entity> <!-- Adjust the position to place it correctly in the scene -->
-<!-- First staircase -->
-<a-entity position="-42.550 10 77.055" 
-spiral-staircase="numSteps: 97; stepHeight: 0.5; radius: 5; stepWidth: 3; stepDepth: 1.5; rotationPerStep: 12; color: #ff0000"></a-entity>
+
+<a-entity id="staircase"></a-entity> 
+
 
 
 
@@ -268,7 +260,7 @@ spiral-staircase="numSteps: 97; stepHeight: 0.5; radius: 5; stepWidth: 3; stepDe
 
   <!-- Primer piso -->
  <a-entity geometry="primitive: cylinder; radius: 7.5; height: 20;segmentsRadial: 6 " 
- position="0 25 0" material="color: #FF5733" segmentsRadial: 6 static-body></a-entity>
+ position="0 25 0" material="color: #FF5733" segmentsRadial: 6 static-body model-opacity="0"></a-entity>
  <a-box position="8.99246 10 -14.62035" width="12" height="0.2" depth="5" 
  rotation="0 -29.999999999999996 0" material="color: #333; side: double" geometry="width: 29.81; depth: 15.04" static-body></a-box>
  <a-box position="-8.40041 10 15.33899" width="12" height="0.2" depth="5" rotation="0 -29.999999999999996 0" material="color: #333; side: double" 
@@ -297,32 +289,18 @@ spiral-staircase="numSteps: 97; stepHeight: 0.5; radius: 5; stepWidth: 3; stepDe
   <a-box position="-17.57545 20 0" width="12" height="0.2" depth="5" rotation="0 90 0" 
   material="color: #333; side: double" geometry="width: 29.81; depth: 15.04" static-body></a-box>
  
-  <a-entity class="portal" mixin="portal" oasis-portal="href:oasis/aRUUwwDhzg.html" material="pano:assets/img/portal/forest.jpg" 
-  raycastable="" animation__mouseenterscale="loop:NaN;dir:alternate;easing:easeInOutQuad;from:1 1 1;property:scale;startEvents:mouseenter;pauseEvents:mouseleave;to:1.1 1.1 1.1" animation__mouseenter="from:#999" animation__mouseleave="to:#999" position="10 0 0"> <a-entity class="portalEffect1" obj-model="obj:assets/models/portal/portal.obj" 
-  additive="" material="color:#999;opacity:0.6;depthWrite:false;shader:flat;transparent:true;src:[object HTMLImageElement]" 
-  position="0 0 -0.017" rotation="125.7479938522872 90 90" scale="3.116 3.116 3.116" 
-  animation="property:object3D.rotation.x;from:0;to:6.283185;dur:10000;loop:true;easing:linear"></a-entity> 
-  <a-entity class="portalEffect2" obj-model="obj:assets/models/portal/portal.obj" additive="" 
-  material="color:#f37132;opacity:0.6;depthWrite:false;shader:flat;transparent:true;src:[object HTMLImageElement]" 
-  position="0 0 -0.058" rotation="323.9999841599155 90 90" scale="3.078 0.969 3.078" 
-  animation="property:object3D.rotation.x;from:0;to:6.283185;dur:15000;loop:true;easing:linear"></a-entity> 
-  <a-entity class="portalText" mixin="slice font" slice9="color:#111;height:0.3;width:2.5;opacity:0.7" 
-  text="color:#999;align:center;value:Shyke HIX9;side:double;width:4;zOffset:0.01" position="0 1.3 0"></a-entity> </a-entity>
-
+  
   
   <!-- Seccion 1 -->
 
   <!-- camino -->
-  <a-box position="55.61666 10 0.52702" width="1" height="60" depth="28.7" material="src: [object HTMLImageElement]; side: double; alphaTest: 0.5" repeat="10 10" rotation="0 90 90" geometry="width: 0.5; height: 5; depth: 62" static-body></a-box>
+  <a-box position="55.61666 10 0.52702" width="1" height="60" depth="28.7"  repeat="10 10" rotation="0 90 90" geometry="width: 0.5; height: 5; depth: 62" model-opacity="0" static-body></a-box>
 
    <!-- Seccion 2 -->
-   <a-box position="-26.43148 10 46.78712" width="1" height="60" depth="28.7" material="src: [object HTMLImageElement]; side: double; alphaTest: 0.5" repeat="10 10" rotation="0 149.88 90" geometry="width: 0.5; height: 5; depth: 60" static-body></a-box>
+   <a-box position="-26.43148 10 46.78712" width="1" height="60" depth="28.7"  repeat="10 10" rotation="0 149.88 90" geometry="width: 0.5; height: 5; depth: 60" model-opacity="0" static-body></a-box>
   
 <!-- Seccion 3 -->
-
-<a-box position="-26.64809 10 -49.42072" width="1" height="60" depth="28.7" material="src: [object HTMLImageElement]; side: double; alphaTest: 0.5" repeat="10 10" rotation="0 29.999999999999996 90" geometry="width: 0.5; height: 5; depth: 62" static-body></a-box>
-
-
+<a-box position="-27.4394 9.70926 -48.9437" width="1" height="60" depth="28.7" w repeat="10 10" rotation="0 29.999999999999996 90" geometry="width: 0.5; height: 5; depth: 62" model-opacity="0" static-body></a-box>
 
 <!-- Modelos de escenario -->
 
@@ -331,21 +309,22 @@ spiral-staircase="numSteps: 97; stepHeight: 0.5; radius: 5; stepWidth: 3; stepDe
 
  <a-entity gltf-model="./Biblioteca/Modelos/PMTTYD/paredPalacio.gltf" position="23.87932 0 -0.09346" rotation="0 -90 0" scale="0.69 0.54 0.5" model-opacity="1"></a-entity>
 <a-entity gltf-model="#planetario3D" position="0 40 0" rotation="0 0 0" scale="1.5 1.5 1.5" model-opacity="1"></a-entity>
-<a-entity gltf-model="#torre" position="25.40679 0 14.97089" rotation="" scale="0.2 0.5 0.2" model-opacity="1"></a-entity>
-<a-entity gltf-model="#torre" position="25.40679 0 -14.69207" rotation="" scale="0.2 0.5 0.2" model-opacity="1"></a-entity>
-<a-entity gltf-model="#torre" position="-25.0376 0 -14.69207" rotation="" scale="0.2 0.5 0.2" model-opacity="1"></a-entity>
-<a-entity gltf-model="#torre" position="-25.0376 0 14.42082" rotation="" scale="0.2 0.5 0.2" model-opacity="1"></a-entity>
-<a-entity gltf-model="#torre" position="0.04168 0 29.5908" rotation="" scale="0.2 0.5 0.2" model-opacity="1"></a-entity>
-<a-entity gltf-model="#torre" position="0.04168 0 -29.36388" rotation="" scale="0.2 0.5 0.2" model-opacity="1"></a-entity>
 
-<a-entity gltf-model="#palacioTorre" position="-43.87526 10.34439 77.05512" rotation="0 59.99999999999999 0" 
-scale="0.5 0.5 0.5" model-opacity="0.5"></a-entity>
-<a-entity gltf-model="./Biblioteca/Modelos/GC/PP/GameCube - Paper Mario The Thousand-Year Door - Hooktail Castle/tower.gltf" 
-position="-41.89614 6.85383 -75.76255" rotation="0 -59.99999999999999 0" scale="0.5 0.5 0.5" model-opacity="0.5"></a-entity>
-<a-entity gltf-model="./Biblioteca/Modelos/GC/PP/GameCube - Paper Mario The Thousand-Year Door - Hooktail Castle/tower.gltf" 
-position="86.36249 6.85383 0.75892" rotation="0 -180 0" scale="0.5 0.5 0.5" model-opacity="0.5"></a-entity>
+<a-entity gltf-model="#torre" position="25.40679 0 14.97089" rotation="" scale="0.2 0.230 0.2" model-opacity="1"></a-entity>
+<a-entity gltf-model="#torre" position="25.40679 0 -14.69207" rotation="" scale="0.2 0.230 0.2" model-opacity="1"></a-entity>
+<a-entity gltf-model="#torre" position="-25.0376 0 -14.69207" rotation="" scale="0.2 0.230 0.2" model-opacity="1"></a-entity>
+<a-entity gltf-model="#torre" position="-25.0376 0 14.42082" rotation="" scale="0.2 0.230 0.2" model-opacity="1"></a-entity>
+<a-entity gltf-model="#torre" position="0.04168 0 29.5908" rotation="" scale="0.2 0.230 0.2" model-opacity="1"></a-entity>
+<a-entity gltf-model="#torre" position="0.04168 0 -29.36388" rotation="" scale="0.2 0.230 0.2" model-opacity="1"></a-entity>
 
-<a-entity gltf-model="#stageLight" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5" model-opacity="1"></a-entity>
+<a-entity gltf-model="./Biblioteca/Modelos/GC/PP/GameCube - Paper Mario The Thousand-Year Door - Hooktail Castle/tower.gltf" position="-43.87526 -37.25216 77.05512" rotation="0 -119.99999999999999 0" scale="0.5 0.5 0.5" model-opacity="0.99"></a-entity>
+
+<a-entity gltf-model="./Biblioteca/Modelos/GC/PP/GameCube - Paper Mario The Thousand-Year Door - Hooktail Castle/tower.gltf" position="-42.3044 -37.52 -74.58765" rotation="0 119.99999999999999 0" scale="0.5 0.5 0.5" model-opacity="0.99"></a-entity>
+
+<a-entity gltf-model="./Biblioteca/Modelos/GC/PP/GameCube - Paper Mario The Thousand-Year Door - Hooktail Castle/tower.gltf" position="86.36249 -37.52 0.64187" rotation="" scale="0.5 0.5 0.5" model-opacity="0.99w"></a-entity>
+
+
+
 
 <a-entity gltf-model="./Biblioteca/Modelos/GC/PP/GameCube - Paper Mario The Thousand-Year Door - Stage Light/stageLight.gltf" 
 position="3.54618 8.24018 -24.73688" rotation="-21.51 -1.73 29.999999999999996" scale="0.5 0.5 0.5" model-opacity="1"></a-entity>
@@ -359,7 +338,20 @@ position="22.22308 8.24018 -14.05911" rotation="-26.75 -1.73 -29.999999999999996
 
 <a-entity light="type: directional; intensity: 1.0" position="0 1 0"></a-entity>
 
-<a-entity light="type: ambient; color: #FFFFFF; intensity: 0.9s;"></a-entity>
+<a-entity light="type: ambient; color: #FFFFFF; intensity: 0.2;"></a-entity>
+
+<a-entity light="type: hemisphere; color: #33C; groundColor: #3C3; intensity: 0.5"></a-entity>
+
+<a-entity light="type: point; intensity: 0.75; distance: 50; decay: 2"
+          position="36.487 16.311 -69.586"></a-entity>
+
+          <a-entity light="type: point; intensity: 0.75; distance: 50; decay: 2"
+          position="35.013 14.093 58.738"></a-entity>
+
+          <a-entity light="type: point; intensity: 0.75; distance: 50; decay: 2"
+          position="-74.591 11.475 -0.063"></a-entity>
+          
+
 <a-entity gltf-model="./Biblioteca/Modelos/PMTTYD/paredPalacio.gltf" position="-12.57204 0.07157 22.11362" rotation="0 150 0" scale="0.73 0.56 0.5" model-opacity="1"></a-entity>
 <!-- onclick="window.open('https://www.larissaloza.com.mx/', '_blank') -->
 
@@ -368,9 +360,9 @@ position="22.22308 8.24018 -14.05911" rotation="-26.75 -1.73 -29.999999999999996
   ##############################################################################################################
   ############################################################################################################## -->
 
-<a-entity gltf-model="./Biblioteca/Modelos/zelda/estructuraAux1.gltf" position="-4.09867 -26.85464 3.60814" scale="0.2 0.2 0.2" model-opacity="1"></a-entity>
+  <a-entity gltf-model="./Biblioteca/Modelos/zelda/estructuraAux1.gltf" position="8.93222 -26.85464 10.17908" scale="0.2 0.2 0.2" model-opacity="1" rotation="0 -17.06 0"></a-entity>
 <a-entity gltf-model="./Biblioteca/Modelos/zelda/estructuraAux2.2.gltf" position="29.2316 -5.1604 -50.42254" scale="5 5 5" model-opacity="1" rotation="0 -29.999999999999996 0"></a-entity>
-<a-entity gltf-model="./Biblioteca/Modelos/zelda/estructuraAux3.gltf" position="-83.41238 0 0" scale="0.2 0.2 0.2" model-opacity="1" rotation="0 90 0"></a-entity>
+<a-entity gltf-model="./Biblioteca/Modelos/zelda/estructuraAux4.gltf" position="-83.41238 -1 0" scale="0.2 0.2 0.2" model-opacity="1" rotation="0 90 0"></a-entity>
 <a-entity gltf-model="./Biblioteca/Modelos/escenarios/moon.gltf" position="-13.815 -2.241 -23.644" scale="0.45 0.45 0.45" model-opacity="0.9" rotation="0 -150 0" animation="property: rotation; to: 0 -150 360; dur: 100000; easing: linear; loop: true"></a-entity>
 <!-- <a-entity gltf-model="./Biblioteca/Modelos/escenarios/greatTree.gltf" position="0 0 0" scale="0.5 0.5 0.5" model-opacity="0.99"></a-entity> -->
 <a-box position="4.74205 0.57935 -26.72489" width="12" height="0.2" depth="5" rotation="90 -29.999999999999996 0"  geometry="width: 10; depth: 1.15" material="src: #soclo; side: double; alphaTest: 0.5" repeat="5 1"  ></a-box>
@@ -380,13 +372,390 @@ position="22.22308 8.24018 -14.05911" rotation="-26.75 -1.73 -29.999999999999996
 <a-box position="4.74205 5.26101 -26.72489" width="12" height="0.3" depth="5" material="src:#falsoVidrio; side: double; alphaTest: 0.5" repeat="2 1" rotation="90 -30 0" geometry="width: 10; height: 0.1; depth: 7.99" model-opacity="0.5"></a-box>
 
 
+<a-box position="20.86025 5.26101 -17.441" width="12" height="0.3" depth="5" material="src: #falsoVidrio; side: double; alphaTest: 0.5" repeat="2 1" rotation="90 -29.999999999999996 0" geometry="width: 10; height: 0.1; depth: 7.99" model-opacity="0.5"></a-box>
+<a-box position="20.76327 9.59882 -17.47079" width="12" height="0.2" depth="5" rotation="90 -29.999999999999996 0" geometry="width: 10; depth: 1.15" material="src: #soclo; side: double; alphaTest: 0.5" repeat="5 1"></a-box>
+<a-box position="4.74205 9.5808 -26.72489" width="12" height="0.2" depth="5" rotation="90 -29.999999999999996 0" geometry="width: 10; depth: 1.15" material="src: #soclo; side: double; alphaTest: 0.5" repeat="5 1"></a-box>
+<a-box position="4.87095 5.26101 26.78507" width="12" height="0.3" depth="5" material="src: #falsoVidrio; side: double; alphaTest: 0.5" repeat="2 1" rotation="90 -150 0" geometry="width: 10; height: 0.1; depth: 7.99" model-opacity="0.5"></a-box>
+<a-box position="20.56997 5.26101 17.77979" width="12" height="0.3" depth="5" material="src: #falsoVidrio; side: double; alphaTest: 0.5" repeat="2 1" rotation="90 -150 0" geometry="width: 10; height: 0.1; depth: 7.99" model-opacity="0.5"></a-box>
+
+<a-box position="-24.84842 5.26101 -9.23433" width="12" height="0.3" depth="5" material="src: #falsoVidrio; side: double; alphaTest: 0.5" repeat="2 1" rotation="90 90 0" geometry="width: 10; height: 0.1; depth: 7.99" model-opacity="0.5"></a-box>
+<a-box position="-24.84842 5.26101 8.98015" width="12" height="0.3" depth="5" material="src: #falsoVidrio; side: double; alphaTest: 0.5" repeat="2 1" rotation="90 90 0" geometry="width: 10; height: 0.1; depth: 7.99" model-opacity="0.5"></a-box>
+
+<a-box position="20.69585 0.64099 17.76993" width="12" height="0.2" depth="5" rotation="90 -150 0" geometry="width: 10; depth: 1.15" material="src: #soclo; side: double; alphaTest: 0.5" repeat="5 1"></a-box>
+<a-box position="4.87545 0.579 26.81821" width="12" height="0.2" depth="5" rotation="90 -150 0" geometry="width: 10; depth: 1.15" material="src: #soclo; side: double; alphaTest: 0.5" repeat="5 1"></a-box>
+<a-box position="4.79935 9.37003 26.81821" width="12" height="0.2" depth="5" rotation="90 -150 0" geometry="width: 10; depth: 1.15" material="src:#soclo; side: double; alphaTest: 1" repeat="5 1"></a-box>
+<a-box position="20.69585 9.45971 17.76993" width="12" height="0.2" depth="5" rotation="90 -150 0" geometry="width: 10; depth: 1.15" material="src: #soclo; side: double; alphaTest: 0.5" repeat="5 1"></a-box>
+<a-box position="-24.83547 0.579 8.96178" width="12" height="0.2" depth="5" rotation="90 90 0" geometry="width: 10; depth: 1.15" material="src: #soclo; side: double; alphaTest: 0.5" repeat="5 1"></a-box>
+<a-box position="-24.83547 9.33435 8.96178" width="12" height="0.2" depth="5" rotation="90 90 0" geometry="width: 10; depth: 1.15" material="src: #soclo; side: double; alphaTest: 0.5" repeat="5 1"></a-box>
+<a-box position="-24.83547 9.33435 -9.23307" width="12" height="0.2" depth="5" rotation="90 90 0" geometry="width: 10; depth: 1.15" material="src: #soclo; side: double; alphaTest: 0.5" repeat="5 1"></a-box>
+<a-box position="-24.83547 0.579 -9.23307" width="12" height="0.2" depth="5" rotation="90 90 0" geometry="width: 10; depth: 1.15" material="src: #soclo; side: double; alphaTest: 0.5" repeat="5 1"></a-box>
+
+<a-box position="-25 12.51731 0" width="0.030" height="60" depth="28.7" material="src: #falsoVidrio3; side: single; alphaTest: 0.5" repeat="5 1" rotation="0 180 0" geometry="height: 5" model-opacity="0.8"></a-box>
+<a-box position="12.7038 12.45208 22.2419" width="0.030" height="60" depth="28.7" material="src: #falsoVidrio3; side: single; alphaTest: 0.5" repeat="5 1" rotation="0 -59.300000000000004 0" geometry="height: 5" model-opacity="0.8"></a-box>
+<a-box position="12.89046 12.51731 -21.86475" width="0.030" height="60" depth="28.7" material="src: #falsoVidrio3; side: single; alphaTest: 0.5" repeat="5 1" rotation="0 59.99999999999999 0" geometry="height: 5" model-opacity="0.8"></a-box>
+
+
+<a-box position="-5.30757 12.68149 -26.81645" width="0.030" height="60" depth="28.7" material="src: #falsoVidrio3; side: single; alphaTest: 0.5" repeat="2 1" rotation="0 119.99999999999999 0" geometry="height: 5; depth: 10.41" model-opacity="0.8"></a-box>
+<a-box position="-20.13678 12.68149 -18.07381" width="0.030" height="60" depth="28.7" material="src: #falsoVidrio3; side: single; alphaTest: 0.5" repeat="2 1" rotation="0 119.99999999999999 0" geometry="height: 5; depth: 10.41" model-opacity="0.8"></a-box>
+
+<a-box position="-20.23068 12.68149 17.67124" width="0.030" height="60" depth="28.7" material="src: #falsoVidrio3; side: single; alphaTest: 0.5" repeat="2 1" rotation="0 61.550000000000004 0" geometry="height: 5; depth: 10.41" model-opacity="0.8"></a-box>
+<a-box position="-5.09494 12.68149 26.81527" width="0.030" height="60" depth="28.7" material="src: #falsoVidrio3; side: single; alphaTest: 0.5" repeat="2 1" rotation="0 61.550000000000004 0" geometry="height: 5; depth: 10.41" model-opacity="0.8"></a-box>
+
+<a-box position="25.66939 12.31746 8.86814" width="0.030" height="60" depth="28.7" material="src: #falsoVidrio3; side: single; alphaTest: 0.5" repeat="2 1" rotation="" geometry="height: 5; depth: 10.41" model-opacity="0.8"></a-box>
+<a-box position="25.66939 12.31746 -8.62669" width="0.030" height="60" depth="28.7" material="src: #falsoVidrio3; side: single; alphaTest: 0.5" repeat="2 1" rotation="" geometry="height: 5; depth: 10.41" model-opacity="0.8"></a-box>
+
+<!-- Hacia estructura Aux 2.2 TEMPLO DEL TIEMPO -->
+
+<a-box position="31.04063 0.10437 -53.58424" width="1" height="60" depth="28.7" model-opacity="0.0" material="src: [object HTMLImageElement]; side: double; alphaTest: 0.5" repeat="10 10" rotation="0 59.99999999999999 -62.43" geometry="width: 0.5; height: 11.37; depth: 5" static-body></a-box>
+
+  <!-- Disco piso del templo  -->
+  <a-cylinder position="40.62427 3.0125 -70.91267" radius="10" height="0.1"  rotation="" static-body  geometry="radius: 14.24" visible="false">
+  </a-cylinder>
+
+
+  <a-sphere radius="1.25" position="" material="src: #falsoVidrio2; side: double" model-opacity="0.5" geometry="radius: 190; phiStart: 0.62" rotation="-77.3268415 -20.329500000000003 47.5718973" animation="property: rotation; to: 0 -150 360; dur: 100000; easing: linear; loop: true" >
+	</a-sphere>
+<!-- w -->
+
+<a-entity gltf-model="./Biblioteca/Modelos/GC/PP/GameCube - Paper Mario The Thousand-Year Door - Hooktail Castle/puente.gltf" position="18.71762 9.96123 0.34199" scale="0.34 0.5 0.5" model-opacity="0.99"></a-entity>
+<a-entity gltf-model="./Biblioteca/Modelos/GC/PP/GameCube - Paper Mario The Thousand-Year Door - Hooktail Castle/puente.gltf" position="-34.01328 9.96123 59.65871" scale="0.35 0.5 0.5" model-opacity="0.99" rotation="0 59.99999999999999 0"></a-entity>
+<a-entity gltf-model="./Biblioteca/Modelos/GC/PP/GameCube - Paper Mario The Thousand-Year Door - Hooktail Castle/puente.gltf" position="-9.65568 9.96123 -16.84264" scale="0.34 0.5 0.5" model-opacity="0.99" rotation="0 119.99999999999999 0"></a-entity>
+
+<a-entity position="74.62161 0.93618 0.09092" id="ocean" ocean="density: 20; width: 50; depth: 50; speed: 4; amplitude: 0.5; amplitudeVariance: 0.5; color: #00ffff; opacity: 2.04" geometry="primitive: cylinder; height: 0.15" rotation="-90 0 180"></a-entity>
+<a-entity position="-42.93268 1.05427 -73.00177" id="ocean-2" ocean="density: 20; width: 50; depth: 50; speed: 4; amplitude: 0.5; amplitudeVariance: 0.5; color: #00ffff; opacity: 2.04" geometry="primitive: cylinder; height: 0.15" rotation="-90 0 180"></a-entity>
+<a-entity position="-42.93268 1.05427 76.41439" id="ocean-3" ocean="density: 20; width: 50; depth: 50; speed: 4; amplitude: 0.5; amplitudeVariance: 0.5; color: #00ffff; opacity: 2.04" geometry="primitive: cylinder; height: 0.15" rotation="-90 0 180"></a-entity>
+
+
+
+<!-- Armas -->
+
+
+<a-entity gltf-model="./Biblioteca/Modelos/Armas/GameCube - Metroid Prime - Arm Cannon/armcannon.gltf" position="31.64712 5.25658 -65.37052" scale="4 4 4" model-opacity="1" rotation="0 127.18 0"></a-entity>
+<a-entity gltf-model="./Biblioteca/Modelos/torrecita2.gltf" position="31.91875 2.34832 -65.16792" scale="0.33 0.33 0.33" model-opacity="1" rotation="0 90 0"></a-entity>
+
+<a-entity gltf-model="./Biblioteca/Modelos/Armas/PC Computer - Halo Combat Evolved - Needler/needler.gltf" position="40.75155 5.0109 -60.1864" scale="" model-opacity="1" rotation="0 90 0"></a-entity>
+<a-entity gltf-model="./Biblioteca/Modelos/torrecita2.gltf" position="40.75155 2.348 -60.1864" scale="0.33 0.33 0.33" model-opacity="1" rotation="0 90 0"></a-entity>
+
+<a-entity gltf-model="#bplasmaRifle"  position="45.85851 5.34832 -61.15489" scale="1 1 1" model-opacity="0.9" rotation="0 90 0"></a-entity>
+<a-entity gltf-model="./Biblioteca/Modelos/torrecita2.gltf" position="45.85851 2.34832 -61.15489" scale="0.33 0.33 0.33" model-opacity="1" rotation="0 90 0"></a-entity>
+
+<a-entity gltf-model="./Biblioteca/Modelos/Armas/ricks_portal_gun/scene.gltf" position="29.38243 5.34832 -69.67276" scale="0.5 0.5 0.5" model-opacity="0.9" rotation="0 90 0"></a-entity>
+<a-entity gltf-model="./Biblioteca/Modelos/torrecita2.gltf" position="30.0701 2.34832 -71.15205" scale="0.33 0.33 0.33" model-opacity="1" rotation="0 90 0"></a-entity>
+
+<a-entity gltf-model="#portalGun" position="50.11665 5.34832 -65.1743" scale="1 1 1" model-opacity="1" rotation="0 90 0"></a-entity>
+<a-entity gltf-model="./Biblioteca/Modelos/torrecita2.gltf" position="50.11665 2.34832 -65.1743" scale="0.33 0.33 0.33" model-opacity="1" rotation="0 90 0"></a-entity>
+
+<a-entity gltf-model="#plasmaCutter" position="31.37839 5.34832 -75.92434" scale="1 1 1" model-opacity="1" rotation="0 90 0"></a-entity>
+<a-entity gltf-model="./Biblioteca/Modelos/torrecita2.gltf" position="31.37839 2.34832 -75.92434" scale="0.33 0.33 0.33" model-opacity="1" rotation="0 90 0"></a-entity>
+
+<a-entity gltf-model="#lightsaber" position="51.82219 5.34832 -72.74479" scale="1 1 1" model-opacity="1" rotation="0 90 0"></a-entity>
+<a-entity gltf-model="./Biblioteca/Modelos/torrecita2.gltf" position="51.82219 2.34832 -72.74479" scale="0.33 0.33 0.33" model-opacity="1" rotation="0 90 0"></a-entity>
+
+<a-entity gltf-model="#crowbar" position="36.99986 5.34832 -81.70781" scale="1 1 1" model-opacity="1w" rotation="0 90 0"></a-entity>
+<a-entity gltf-model="./Biblioteca/Modelos/torrecita2.gltf" position="36.99986 2.34832 -81.70781" scale="0.33 0.33 0.33" model-opacity="1" rotation="0 90 0"></a-entity>
+
+<a-entity gltf-model="./Biblioteca/Modelos/Armas/PC Computer - DOOM Eternal - BFG/BFG.gltf" position="45.70798 5.34832 -78.95747" scale="2 2 2" model-opacity="1" rotation="0 -31 0"></a-entity>
+<a-entity gltf-model="./Biblioteca/Modelos/torrecita2.gltf" position="45.70798 2.34832 -78.95747" scale="0.33 0.33 0.33" model-opacity="1" rotation="0 90 0"></a-entity>
+
+
+<a-entity gltf-model="./Biblioteca/Modelos/Armas/PC Computer - Halo Combat Evolved - Energy Sword/energysword.gltf" position="42.79625 6.26149 -73.98588" scale="1 1 1" model-opacity="1.0" rotation="0 59.99999999999999 90"></a-entity>
+
+
+<!-- Creaturas -->
+
+
+
+<a-entity gltf-model="./Biblioteca/Modelos/Creaturas/Dreamcast - Godzilla Generations Maximum Impact - Godzilla/godzilla.gltf" position="-89.99446 7.44164 0.07096" scale="0.1 0.1 0.1" model-opacity="1w" rotation="0 90 0"></a-entity>
+<a-entity gltf-model="./Biblioteca/Modelos/Creaturas/3DS - Alien On The Run - Cage/cage.gltf" position="-89.99446 7.44164 0.07096" scale="0.02 0.02 0.03" model-opacity="0.14"></a-entity>
+
+<a-entity gltf-model="./Biblioteca/Modelos/Creaturas/ps1low_poly_xenomorph_1979_alien/scene.gltf" position="-86.28422 7.44164 12.74885" scale="1.5 1.5 1.5" model-opacity="1" rotation="0 119.99999999999999 0" animation-mixer=""></a-entity>
+<a-entity gltf-model="./Biblioteca/Modelos/Creaturas/3DS - Alien On The Run - Cage/cage.gltf" position="-87.78032 7.44164 13.51664" scale="0.02 0.02 0.03" model-opacity="0.14" rotation="0 42.5 0"></a-entity>
+
+<a-entity gltf-model="#ghoul" position="-87.87232 7.44164 -13.54997" scale="2 2 2" model-opacity="0.9" rotation="0 90 0" animation-mixer=""></a-entity>
+<a-entity gltf-model="./Biblioteca/Modelos/Creaturas/3DS - Alien On The Run - Cage/cage.gltf" position="-87.87232 7.44164 -13.54997" scale="0.02 0.02 0.03" model-opacity="0.14" rotation="0 -44.15 1.75"></a-entity>
+
+<a-entity gltf-model="./Biblioteca/Modelos/Creaturas/Mobile - LEGO Star Wars The Yoda Chronicles - Rancor/rancor.gltf" position="-72.59723 11.64304 -10.23901" scale="" model-opacity="1" rotation="0 -45.48 0"></a-entity>
+<a-entity gltf-model="./Biblioteca/Modelos/Creaturas/3DS - Alien On The Run - Cage/cage.gltf" position="-72.69846 11.64304 -9.69664" scale="0.02 0.02 0.03" model-opacity="0.14" rotation="0 47.830000000000005 1.75" visible=""></a-entity>
+
+<a-entity gltf-model="./Biblioteca/Modelos/Creaturas/PC Computer - Doctor Who The Adventure Games - Dalek Emperor/dalekEmp.gltf" position="-72.18659 11.64304 9.95586" scale="2.15 2.13 2.31" model-opacity="1" rotation="0 90 0"></a-entity>
+<a-entity gltf-model="./Biblioteca/Modelos/Creaturas/3DS - Alien On The Run - Cage/cage.gltf" position="-72.18659 11.64304 9.95586" scale="0.02 0.02 0.03" model-opacity="0.14" rotation="0 -45.37 1.75" visible=""></a-entity>
+
+<a-entity gltf-model="#arachnid" position="-70.8142 0.55206 12.13896" scale="1 1 1" model-opacity="1" rotation="0 -120 0" animation-mixer=""></a-entity>
+<a-entity gltf-model="./Biblioteca/Modelos/Creaturas/3DS - Alien On The Run - Cage/cage.gltf" position="-70.8142 0.55206 12.13896" scale="0.03 0.03 0.04" model-opacity="0.14" rotation="0 -39.93000000000001 0"></a-entity>
+
+
+<a-entity gltf-model="./Biblioteca/Modelos/Creaturas/3DS - Metroid Samus Returns - Infant Metroid/metroid.gltf" position="-81.5799 4.44418 -14.09693" scale="" model-opacity="0.9" rotation="0 -119.99999999999999 0"></a-entity>
+
+<a-entity gltf-model="#mars" position="-89.247 1.295 -7.783" scale="1 1 1" model-opacity="1" rotation="0 90 0"></a-entity>
+
+<a-entity id="path"
+		parametric-curve="xyzFunctions: 200*cos(t), 50*cos(3*t) + 2, 200*sin(t); 
+			   			  tRange: 0, 6.283;">
+	</a-entity>
+
+
+  <a-entity id="path"
+  parametric-curve="xyzFunctions: 200*cos(t), 50*cos(3*t) + 2, 200*sin(t); 
+               tRange: 0, 6.283;">
+</a-entity>
+
+<a-entity id="pathManta1"
+parametric-curve="xyzFunctions: 100*sin(3*t+20), 0, 100*sin(t); 
+             tRange: 0, 6.283;">
+</a-entity>
+
+<a-entity id="pathManta2"
+parametric-curve="xyzFunctions: 100*sin(t), 0, 80*sin(3*t+50); 
+             tRange: 0, 6.283;">
+</a-entity>
+
+<a-entity id="pathManta3"
+parametric-curve="xyzFunctions: 100*sin(4*t), 0, 100*sin(3*t+50); 
+             tRange: 0, 6.283;">
+</a-entity>
+
+
+
+	<a-entity position="0 50 0"  >
+		<a-entity 
+			id="jetModel"
+			scale="1.5 1.5 1.5"
+			gltf-model="#bird"
+      model-opacity="1"
+      rotation = "0 -128 0"
+			curve-follow="curveData: #path; type: parametric-curve;
+						  duration: 60; loop: true;">
+		</a-entity>
+	</a-entity>
+
+  <a-entity position="0 0.2 0"  >
+		<a-entity 
+			id="mantaModel"
+			scale="1 1 1"
+			gltf-model="#manta"
+      model-opacity="1"
+      rotation = "0 0 0"
+			curve-follow="curveData: #pathManta1; type: parametric-curve;
+						  duration: 90; loop: true;">
+		</a-entity>
+  </a-entity>
+
+
+  <a-entity position="0 0.2 0"  >
+		<a-entity 
+			id="mantaModel"
+			scale="1 1 1"
+			gltf-model="#manta"
+      model-opacity="1"
+      rotation = "0 0 0"
+			curve-follow="curveData: #pathManta2; type: parametric-curve;
+						  duration: 100; loop: true;">
+		</a-entity>
+  </a-entity>
+
+  <a-entity position="0 0.2 0"  >
+		<a-entity 
+			id="mantaModel"
+			scale="1 1 1"
+			gltf-model="#manta"
+      model-opacity="1"
+      rotation = "0 0 0"
+			curve-follow="curveData: #pathManta3; type: parametric-curve;
+						  duration: 80; loop: true;">
+		</a-entity>
+  </a-entity>
+
+  <a-entity position="0 0.2 0"  >
+		<a-entity 
+			id="mantaModel"
+			scale="1 1 1"
+			gltf-model="#manta"
+      model-opacity="1"
+      rotation = "0 0 0"
+			curve-follow="curveData: #pathManta2; type: parametric-curve;
+						  duration: 300; loop: true;">
+		</a-entity>
+  </a-entity>
+
+
+  <a-entity position="0 0.2 0"  >
+		<a-entity 
+			id="mantaModel"
+			scale="1 1 1"
+			gltf-model="#manta"
+      model-opacity="1"
+      rotation = "0 0 0"
+			curve-follow="curveData: #pathManta1; type: parametric-curve;
+						  duration: 300; loop: true;">
+		</a-entity>
+  </a-entity>
+
+  <a-entity position="0 0.2 0"  >
+		<a-entity 
+			id="mantaModel"
+			scale="1 1 1"
+			gltf-model="#manta"
+      model-opacity="1"
+      rotation = "0 0 0"
+			curve-follow="curveData: #pathManta3; type: parametric-curve;
+						  duration: 500; loop: true;">
+		</a-entity>
+  </a-entity>
+
+  <a-entity position="0 0.2 0"  >
+		<a-entity 
+			id="mantaModel"
+			scale="1 1 1"
+			gltf-model="#manta"
+      model-opacity="1"
+      rotation = "0 0 0"
+			curve-follow="curveData: #pathManta2; type: parametric-curve;
+						  duration: 800; loop: true;">
+		</a-entity>
+  </a-entity>
+  <!-- Caminos -->
+
+  <a-entity gltf-model="./Biblioteca/Modelos/GC/PP/GameCube - Paper Mario The Thousand-Year Door - Hooktail Castle/puente.gltf" position="32.83866 0.1 -56.60729" scale="0.33 0.5 0.51" model-opacity="0.99" rotation="0 -119.99999999999999 0"></a-entity>
+  <a-entity gltf-model="./Biblioteca/Modelos/GC/PP/GameCube - Paper Mario The Thousand-Year Door - Hooktail Castle/puente.gltf" position="32.28628 0.1 56.09886" scale="0.33 0.5 0.51" model-opacity="0.99" rotation="0 119.99999999999999 0"></a-entity>
+  <a-entity gltf-model="./Biblioteca/Modelos/GC/PP/GameCube - Paper Mario The Thousand-Year Door - Hooktail Castle/puente.gltf" position="-57.63056 0.1 -0.12063" scale="0.27 0.5 0.5" model-opacity="0.99" rotation=""></a-entity>
+
+
+  <!-- Contenedores -->
+
+  <a-box position="49.11672 0.56697 0.53711" width="1" height="60" depth="28.7" material="src: #paredContenedor; side: double; alphaTest: 0.5" repeat="25 1 1" rotation="" geometry="height: 1.5; depth: 50.33" model-opacity="1"></a-box>
+  <a-box position="99.54588 0.56697 0.35506" width="1" height="60" depth="28.7" material="src: #paredContenedor; side: double; alphaTest: 0.5" repeat="25 1 1" rotation="" geometry="height: 1.5; depth: 50.33" model-opacity="1"></a-box>
+  <a-box position="74.85651 0.56697 25.17771" width="1" height="60" depth="28.7" material="src: #paredContenedor; side: double; alphaTest: 0.5" repeat="25 1 1" rotation="0 90 0" geometry="height: 1.5; depth: 50.33" model-opacity="1"></a-box>
+  <a-box position="73.83826 0.56697 -24.7075" width="1" height="60" depth="28.7" material="src: #paredContenedor; side: double; alphaTest: 0.5" repeat="25 1 1" rotation="0 90 0" geometry="height: 1.5; depth: 50.33" model-opacity="1"></a-box>
+  <a-box position="49.10156 2.09111 0.35506" width="1" height="60" depth="28.7" material="src: #picosBarda; side: double; alphaTest: 0.5" repeat="50 1 1" rotation="" geometry="width: 0.05; height: 1.5; depth: 50.33" model-opacity="0.9"></a-box>
+  <a-box position="99.55551 2.09111 0.35506" width="1" height="60" depth="28.7" material="src: #picosBarda; side: double; alphaTest: 0.5" repeat="50 1 1" rotation="" geometry="width: 0.05; height: 1.5; depth: 50.33" model-opacity="0.9"></a-box>
+  <a-box position="74.62076 2.09111 25.2013" width="1" height="60" depth="28.7" material="src: #picosBarda; side: double; alphaTest: 0.5" repeat="50 1 1" rotation="0 90 0" geometry="width: 0.05; height: 1.5; depth: 50.33" model-opacity="0.9"></a-box>
+  <a-box position="74.62076 2.09111 -24.71909" width="1" height="60" depth="28.7" material="src: #picosBarda; side: double; alphaTest: 0.5" repeat="50 1 1" rotation="0 90 0" geometry="width: 0.05; height: 1.5; depth: 50.33" model-opacity="0.9"></a-box>
+
+
+
+  <a-box position="-68.11564 0.56697 76.74765" width="1" height="60" depth="28.7" material="src: #paredContenedor; side: double; alphaTest: 0.5" repeat="25 1 1" rotation="" geometry="height: 1.5; depth: 50.33" model-opacity="1"></a-box>
+  <a-box position="-17.26162 0.56697 76.74765" width="1" height="60" depth="28.7" material="src: #paredContenedor; side: double; alphaTest: 0.5" repeat="25 1 1" rotation="" geometry="height: 1.5; depth: 50.33" model-opacity="1"></a-box>
+  <a-box position="-43.04242 0.56697 51.22206" width="1" height="60" depth="28.7" material="src: #paredContenedor; side: double; alphaTest: 0.5" repeat="25 1 1" rotation="0 90 0" geometry="height: 1.5; depth: 50.33" model-opacity="1"></a-box>
+  <a-box position="-42.67916 0.56697 100.38337" width="1" height="60" depth="28.7" material="src: #paredContenedor; side: double; alphaTest: 0.5" repeat="25 1 1" rotation="0 90 0" geometry="height: 1.5; depth: 50.33" model-opacity="1"></a-box>
+
+  <a-box position="-68.11927 2.09111 76.66853" width="1" height="60" depth="28.7" material="src: #picosBarda; side: double; alphaTest: 0.5" repeat="50 1 1" rotation="" geometry="width: 0.05; height: 1.5; depth: 50.33" model-opacity="0.9"></a-box>
+  <a-box position="-17.40188 2.09111 76.41325" width="1" height="60" depth="28.7" material="src: #picosBarda; side: double; alphaTest: 0.5" repeat="50 1 1" rotation="" geometry="width: 0.05; height: 1.5; depth: 50.33" model-opacity="0.9"></a-box>
+  <a-box position="-42.90667 2.09111 51.01662" width="1" height="60" depth="28.7" material="src: #picosBarda; side: double; alphaTest: 0.5" repeat="50 1 1" rotation="0 90 0" geometry="width: 0.05; height: 1.5; depth: 50.33" model-opacity="0.9"></a-box>
+  <a-box position="-42.90667 2.09111 100.40076" width="1" height="60" depth="28.7" material="src: #picosBarda; side: double; alphaTest: 0.5" repeat="50 1 1" rotation="0 90 0" geometry="width: 0.05; height: 1.5; depth: 50.33" model-opacity="0.9"></a-box>
 
 
 
 
-<!-- ESCALERRAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA -->
-<a-entity position="0 1 -57.292" spiral-staircase="numSteps: 50; stepHeight: 0.5; radius: 8; stepWidth: 3; stepDepth: 1.5; rotationPerStep: 12; color: #ff0000" ></a-entity>
-  </a-scene>
+  <a-box position="-43.04242 0.56697 -98.80595" width="1" height="60" depth="28.7" material="src: #paredContenedor; side: double; alphaTest: 0.5" repeat="25 1 1" rotation="0 90 0" geometry="height: 1.5; depth: 50.33" model-opacity="1"></a-box>
+  <a-box position="-43.04242 0.56697 -47.3517" width="1" height="60" depth="28.7" material="src: #paredContenedor; side: double; alphaTest: 0.5" repeat="25 1 1" rotation="0 90 0" geometry="height: 1.5; depth: 50.33" model-opacity="1"></a-box>
+  <a-box position="-67.68152 0.56697 -73.15902" width="1" height="60" depth="28.7" material="src: #paredContenedor; side: double; alphaTest: 0.5" repeat="25 1 1" rotation="" geometry="height: 1.5; depth: 50.33" model-opacity="1"></a-box>
+  <a-box position="-17.58868 0.56697 -73.15902" width="1" height="60" depth="28.7" material="src: #paredContenedor; side: double; alphaTest: 0.5" repeat="25 1 1" rotation="" geometry="height: 1.5; depth: 50.33" model-opacity="1"></a-box>
+
+<a-box position="-42.90667 2.09111 -98.75499" width="1" height="60" depth="28.7" material="src: #picosBarda; side: double; alphaTest: 0.5" repeat="50 1 1" rotation="0 90 0" geometry="width: 0.05; height: 1.5; depth: 50.33" model-opacity="0.9"></a-box>
+<a-box position="-42.90667 2.09111 -47.37382" width="1" height="60" depth="28.7" material="src: #picosBarda; side: double; alphaTest: 0.5" repeat="50 1 1" rotation="0 90 0" geometry="width: 0.05; height: 1.5; depth: 50.33" model-opacity="0.9"></a-box>
+<a-box position="-68.71241 2.09111 -71.98393" width="1" height="60" depth="28.7" material="src: #picosBarda; side: double; alphaTest: 0.5" repeat="50 1 1" rotation="" geometry="width: 0.05; height: 1.5; depth: 50.33" model-opacity="0.9"></a-box>
+<a-box position="-17.48008 2.09111 -73.00692" width="1" height="60" depth="28.7" material="src: #picosBarda; side: double; alphaTest: 0.5" repeat="50 1 1" rotation="" geometry="width: 0.05; height: 1.5; depth: 50.33" model-opacity="0.9"></a-box>
+
+
+
+<a-box position="8.00553 0.56697 42.128" width="1" height="60" depth="28.7" material="src: #paredContenedor; side: double; alphaTest: 0.5" repeat="25 1 1" rotation="0 29.999999999999996 0" geometry="height: 1.5; depth: 29.13" model-opacity="1"></a-box>
+<a-box position="34.73155 0.56697 31.17441" width="1" height="60" depth="28.7" material="src: #paredContenedor; side: double; alphaTest: 0.5" repeat="25 1 1" rotation="0 29.999999999999996 0" geometry="height: 1.5; depth: 36.48" model-opacity="1"></a-box>
+
+<a-box position="11.7186 0.86504 -48.00537" width="1" height="60" depth="28.7" material="src: #paredContenedor; side: double; alphaTest: 0.5" repeat="25 1 1" rotation="0 150 0" geometry="height: 1.5; depth: 43.24" model-opacity="1"></a-box>
+<a-box position="35.98146 0.86504 -34.20819" width="1" height="60" depth="28.7" material="src: #paredContenedor; side: double; alphaTest: 0.5" repeat="25 1 1" rotation="0 150 0" geometry="height: 1.5; depth: 43.24" model-opacity="1"></a-box>
+<a-box position="-45.09163 0.7074 13.47918" width="1" height="60" depth="28.7" material="src: #paredContenedor; side: double; alphaTest: 0.5" repeat="25 1 1" rotation="0 90 0" geometry="height: 1.5; depth: 39.29" model-opacity="1"></a-box>
+<a-box position="-45.09163 0.7074 -13.69933" width="1" height="60" depth="28.7" material="src: #paredContenedor; side: double; alphaTest: 0.5" repeat="25 1 1" rotation="0 90 0" geometry="height: 1.5; depth: 39.29" model-opacity="1"></a-box>
+
+
+<a-box position="16.79332 0.34864 -45.68524" width="12" height="0.2" depth="5" rotation="0 59.99999999999999 0" color="#997866" material="src: #tierra; side: double; alphaTest: 0.5" repeat="10 5 1" geometry="width: 44.19; depth: 9.61" static-body="sphereRadius: NaN" ></a-box>
+<a-box position="31.37876 0.34864 -37.16039" width="12" height="0.2" depth="5" rotation="0 59.99999999999999 0" color="#997866" material="src: #tierra; side: double; alphaTest: 0.5" repeat="10 5 1" geometry="width: 44.19; depth: 9.61" static-body="sphereRadius: NaN" ></a-box>
+
+
+
+
+<a-box position="-44.85948 0.34864 -8.70717" width="12" height="0.2" depth="5" rotation="" color="#997866" material="src: #tierra; side: double; alphaTest: 0.5" repeat="10 5 1" geometry="width: 39; depth: 9.61" static-body="sphereRadius: NaN" velocity=""></a-box>
+<a-box position="34.73155 0.56697 31.17441" width="1" height="60" depth="28.7" material="src: #paredContenedor; side: double; alphaTest: 0.5" repeat="25 1 1" rotation="0 29.999999999999996 0" geometry="height: 1.5; depth: 36.48" model-opacity="1"></a-box>
+<a-box position="15.48473 0.34864 44.04381" width="12" height="0.2" depth="5" rotation="0 -59.99999999999999 0" color="#997866" material="src: #tierra; side: double; alphaTest: 0.5" repeat="10 5 1" geometry="width: 39; depth: 9.61" static-body="sphereRadius: NaN" velocity=""></a-box>
+
+<a-box position="30.63165 0.34864 35.31814" width="12" height="0.2" depth="5" rotation="0 -59.99999999999999 0" color="#997866" color="#997866" material="src: #tierra; side: double; alphaTest: 0.5" repeat="10 5 1" geometry="width: 39; depth: 9.61" static-body="sphereRadius: NaN" w></a-box>
+<a-box position="-44.89903 0.34864 8.58115" width="12" height="0.2" depth="5" rotation="" color="#997866" material="src: #tierra; side: double; alphaTest: 0.5" repeat="10 5 1" geometry="width: 39; depth: 9.61" static-body="sphereRadius: NaN" ></a-box>
+
+<a-plane static-body="sphereRadius: NaN" position="" rotation="-90 0 0" color="#0e23aa" scale="200 200 1" opacity="1" material="src: #tierra" repeat="100 100" geometry="" velocity=""></a-plane>
+
+
+
+
+
+<!-- flora -->
+
+<a-box position="37.60037 1.27694 -43.98036" width="12" height="0.3" depth="5" material="src: #arbusto; side: double; alphaTest: 0.5" repeat="1 1" rotation="90 -60.01 0" geometry="width: 3.4; height: 0.01; depth: 1.44" model-opacity="0.99"></a-box>
+
+<a-box position="30.32914 1.50808 -32.79466" width="12" height="0.3" depth="5" material="src: #arbusto2; side: single; alphaTest: 0.5" repeat="1 1" rotation="90 -29.999999999999996 0" geometry="width: 2.82; height: 0.1; depth: 2.2" model-opacity="0.99"></a-box>
+<a-box position="21.68432 1.50808 -59.50618" width="12" height="0.3" depth="5" material="src: #arbusto2; side: single; alphaTest: 0.5" repeat="1 1" rotation="90 10.58 0" geometry="width: 2.82; height: 0.01; depth: 2.2" model-opacity="0.99"></a-box>
+<a-box position="22.22147 1.50808 -52.48507" width="12" height="0.3" depth="5" material="src: #arbusto2; side: single; alphaTest: 0.5" repeat="1 1" rotation="90 10.58 0" geometry="width: 2.82; height: 0.01; depth: 2.2" model-opacity="0.99"></a-box>
+<a-box position="14.23212 1.50808 -44.99497" width="12" height="0.3" depth="5" material="src: #arbusto2; side: single; alphaTest: 0.5" repeat="1 1" rotation="90 10.58 0" geometry="width: 2.82; height: 0.01; depth: 2.2" model-opacity="0.99"></a-box>
+<a-box position="30.30523 1.50808 -31.19916" width="12" height="0.3" depth="5" material="src: #arbusto2; side: single; alphaTest: 0.5" repeat="1 1" rotation="90 -53.37 0" geometry="width: 2.82; height: 0.01; depth: 2.2" model-opacity="0.99"></a-box>
+<a-box position="25.79388 1.50808 -30.79389" width="12" height="0.3" depth="5" material="src: #arbusto2; side: single; alphaTest: 0.5" repeat="1 1" rotation="90 -53.37 0" geometry="width: 2.82; height: 0.01; depth: 2.2" model-opacity="0.99"></a-box>
+<a-box position="37.81162 1.50808 -51.26755" width="12" height="0.3" depth="5" material="src: #arbusto2; side: single; alphaTest: 0.5" repeat="1 1" rotation="90 -53.37 0" geometry="width: 2.82; height: 0.01; depth: 2.2" model-opacity="0.99"></a-box>
+
+<a-box position="-46.04531 1.42301 -11.3793" width="12" height="0.3" depth="5" material="src: #arbusto2; side: single; alphaTest: 0.5" repeat="1 1" rotation="90 45 0" geometry="width: 2.82; height: 0.01; depth: 2.2" model-opacity="0.99"></a-box>
+<a-box position="-39.04427 1.42301 -9.90554" width="12" height="0.3" depth="5" material="src: #arbusto2; side: single; alphaTest: 0.5" repeat="1 1" rotation="90 45 0" geometry="width: 2.82; height: 0.01; depth: 2.2" model-opacity="0.99"></a-box>
+<a-box position="-33.79512 1.42301 -10.88221" width="12" height="0.3" depth="5" material="src: #arbusto2; side: single; alphaTest: 0.5" repeat="1 1" rotation="90 45 0" geometry="width: 2.82; height: 0.01; depth: 2.2" model-opacity="0.99"></a-box>
+<a-box position="-45.73535 1.40547 9.8213" width="12" height="0.3" depth="5" material="src: #arbusto2; side: single; alphaTest: 0.5" repeat="1 1" rotation="90 119.99999999999999 0" geometry="width: 2.82; height: 0.01; depth: 2.2" model-opacity="0.99"></a-box>
+<a-box position="-36.70463 1.40547 7.07538" width="12" height="0.3" depth="5" material="src: #arbusto2; side: single; alphaTest: 0.5" repeat="1 1" rotation="90 119.99999999999999 0" geometry="width: 2.82; height: 0.01; depth: 2.2" model-opacity="0.99"></a-box>
+
+
+<a-box position="33.19956 1.40547 38.75823" width="12" height="0.3" depth="5" material="src: #arbusto2; side: single; alphaTest: 0.5" repeat="1 1" rotation="90 -119.99999999999999 0" geometry="width: 2.82; height: 0.01; depth: 2.2" model-opacity="0.99"></a-box>
+<a-box position="24.04315 1.40547 24.38365" width="12" height="0.3" depth="5" material="src: #arbusto2; side: single; alphaTest: 0.5" repeat="1 1" rotation="90 -119.99999999999999 0" geometry="width: 2.82; height: 0.01; depth: 2.2" model-opacity="0.99"></a-box>
+<a-box position="16.62225 1.40547 41.723" width="12" height="0.3" depth="5" material="src: #arbusto2; side: single; alphaTest: 0.5" repeat="1 1" rotation="90 -177.67 0" geometry="width: 2.82; height: 0.01; depth: 2.2" model-opacity="0.99"></a-box>
+<a-box position="12.35772 1.40547 37.20023" width="12" height="0.3" depth="5" material="src: #arbusto2; side: single; alphaTest: 0.5" repeat="1 1" rotation="90 -177.67 0" geometry="width: 2.82; height: 0.01; depth: 2.2" model-opacity="0.99"></a-box>
+<a-box position="8.32962 1.40547 34.36346" width="12" height="0.3" depth="5" material="src: #arbusto2; side: single; alphaTest: 0.5" repeat="1 1" rotation="90 -177.67 0" geometry="width: 2.82; height: 0.01; depth: 2.2" model-opacity="0.99"></a-box>
+
+<a-box position="22.33176 5.59498 -54.80258" width="12" height="0.3" depth="5" material="src: #pino; side: single; alphaTest: 0.5" repeat="1 1" rotation="90 -31.67 1.01" geometry="width: 2.82; height: 0.01; depth: 9.4" model-opacity="0.99"></a-box>
+<a-box position="35.57093 5.59498 -46.96246" width="12" height="0.3" depth="5" material="src: #pino; side: single; alphaTest: 0.5" repeat="1 1" rotation="90 -31.67 1.01" geometry="width: 2.82; height: 0.01; depth: 9.4" model-opacity="0.99"></a-box>
+<a-box position="35.89857 5.59498 38.02701" width="12" height="0.3" depth="5" material="src: #pino; side: single; alphaTest: 0.5" repeat="1 1" rotation="90 -119.99999999999999 1.98" geometry="width: 2.82; height: 0.01; depth: 9.4" model-opacity="0.99"></a-box>
+<a-box position="24.76612 5.59498 28.57265" width="12" height="0.3" depth="5" material="src: #pino; side: single; alphaTest: 0.5" repeat="1 1" rotation="90 -119.99999999999999 1.98" geometry="width: 2.82; height: 0.01; depth: 9.4" model-opacity="0.99"></a-box>
+<a-box position="25.47993 5.59498 34.14325" width="12" height="0.3" depth="5" material="src: #pino; side: single; alphaTest: 0.5" repeat="1 1" rotation="90 -119.99999999999999 1.98" geometry="width: 2.82; height: 0.01; depth: 9.4" model-opacity="0.99"></a-box>
+<a-box position="16.67687 5.59498 45.75196" width="12" height="0.3" depth="5" material="src: #pino; side: single; alphaTest: 0.5" repeat="1 1" rotation="90 -173.67 1.98" geometry="width: 2.82; height: 0.01; depth: 9.4" model-opacity="0.99"></a-box>
+<a-box position="8.21306 5.59498 36.02833" width="12" height="0.3" depth="5" material="src: #pino; side: single; alphaTest: 0.5" repeat="1 1" rotation="90 -173.67 1.98" geometry="width: 2.82; height: 0.01; depth: 9.4" model-opacity="0.99"></a-box>
+
+
+<a-box position="-55.69503 5.59498 8.24529" width="12" height="0.3" depth="5" material="src: #pino; side: single; alphaTest: 0.5" repeat="1 1" rotation="90 119.99999999999999 1.01" geometry="width: 2.82; height: 0.01; depth: 9.4" model-opacity="0.99"></a-box>
+<a-box position="-48.09077 5.59498 9.64577" width="12" height="0.3" depth="5" material="src: #pino; side: single; alphaTest: 0.5" repeat="1 1" rotation="90 119.99999999999999 1.01" geometry="width: 2.82; height: 0.01; depth: 9.4" model-opacity="0.99"></a-box>
+<a-box position="-35.99556 5.59498 9.3483" width="12" height="0.3" depth="5" material="src: #pino; side: single; alphaTest: 0.5" repeat="1 1" rotation="90 119.99999999999999 1.01" geometry="width: 2.82; height: 0.01; depth: 9.4" model-opacity="0.99"></a-box>
+<a-box position="-38.16911 5.59498 5.0387" width="12" height="0.3" depth="5" material="src: #pino; side: single; alphaTest: 0.5" repeat="1 1" rotation="90 119.99999999999999 1.01" geometry="width: 2.82; height: 0.01; depth: 9.4" model-opacity="0.99"></a-box>
+<a-box position="-58.02608 5.59498 -9.83377" width="12" height="0.3" depth="5" material="src: #pino; side: single; alphaTest: 0.5" repeat="1 1" rotation="90 86.26 1.01" geometry="width: 2.82; height: 0.01; depth: 9.4" model-opacity="0.99"></a-box>
+<a-box position="-50.96548 5.59498 -10.73471" width="12" height="0.3" depth="5" material="src: #pino; side: single; alphaTest: 0.5" repeat="1 1" rotation="90 67.77 1.01" geometry="width: 2.82; height: 0.01; depth: 9.4" model-opacity="0.99"></a-box>
+<a-box position="-39.69263 5.59498 -6.73097" width="12" height="0.3" depth="5" material="src: #pino; side: single; alphaTest: 0.5" repeat="1 1" rotation="90 49.86 1.01" geometry="width: 2.82; height: 0.01; depth: 9.4" model-opacity="0.99"></a-box>
+<a-box position="-35.32005 5.59498 -11.12672" width="12" height="0.3" depth="5" material="src: #pino; side: single; alphaTest: 0.5" repeat="1 1" rotation="90 36.84 1.01" geometry="width: 2.82; height: 0.01; depth: 9.4" model-opacity="0.99"></a-box>
+
+
+
+
+
+<!-- Naves -->
+<a-entity gltf-model="./Biblioteca/Modelos/vehiculos/cowboy_bebop_swordfish_ii/scene.gltf" position="8.67971 3.43029 66.55278" scale="0.5 0.5 0.51" model-opacity="0.99" rotation="0 59.99999999999999 0"></a-entity>
+
+
+<a-entity gltf-model="./Biblioteca/Modelos/vehiculos/GameCube - LEGO Star Wars II The Original Trilogy - Millenium Falcon/mfalcon.gltf" position="18.17192 1.71414 77.12763" scale="3 3 3" model-opacity="0.99" rotation="0 -202.08 0"></a-entity>
+<a-entity gltf-model="./Biblioteca/Modelos/vehiculos/GameCube - Star Fox Adventures - Great Fox/gfox.gltf" position="12.89083 14.10413 71.32833" scale="4 4 4" model-opacity="0.99" rotation="0 -240.02000000000004 0"></a-entity>
+<a-entity gltf-model="./Biblioteca/Modelos/vehiculos/Mobile - Metal Slug Awakening - Firefly Martian UFO/UFO.gltf" position="52.85303 9.05999 57.50364" scale="" model-opacity="0.99" rotation="0 59.99999999999999 0"></a-entity>
+<a-entity gltf-model="./Biblioteca/Modelos/vehiculos/Mobile - Star Trek Fleet Command - USS Saladin/uss.gltf" position="27.71741 2.58973 70.53562" scale="5 5 5" model-opacity="0.99" rotation="0 -203.94 0"></a-entity>
+<a-entity gltf-model="./Biblioteca/Modelos/vehiculos/PC Computer - Doctor Who The Adventure Games - The TARDIS/tardis.gltf" position="44.79715 2.21802 64.19875" scale="0.02 0.02 0.02" model-opacity="0.99" rotation="0 -119.99999999999999 0"></a-entity>
+<a-entity gltf-model="./Biblioteca/Modelos/vehiculos/PC Computer - Star Wars Battlefront 2 - Imperial Star Destroyer Low-poly/destroyer.gltf" position="47.92118 1.70941 54.34756" scale="0.03 0.03 0.03" model-opacity="0.99" rotation="0 119.99999999999999 0"></a-entity>
+<a-entity gltf-model="./Biblioteca/Modelos/vehiculos/Wii - Metroid Other M - Samus Ship/samusship.gltf" position="37.14849 2.77376 50.24503" scale="0.5 0.5 0.51" model-opacity="0.99" rotation=""></a-entity>
+<a-entity gltf-model="./Biblioteca/Modelos/vehiculos/Wii - Super Smash Bros Brawl - Metal Gear REX/rex.gltf" position="-5.53676 0.07915 49.7102" scale="1000 1000 1000" model-opacity="0.99" rotation="-90 119.99999999999999 0"></a-entity>
+<a-entity gltf-model="#covenant" position="27.17217 27.15904 60.71055" scale="2 2 2" model-opacity="0.99" rotation="0 119.99999999999999 0"></a-entity>
+
+
+
+
+
+
+<!-- ##########################################################################################################
+ ##############################################################################################################
+ ############################################################################################################## -->
+</a-scene>
 
  
 
@@ -495,6 +864,18 @@ position="22.22308 8.24018 -14.05911" rotation="-26.75 -1.73 -29.999999999999996
   });
 </script>
 
+<script>
+  // Access model material after it loads
+  document.querySelector('#illuminated-model').addEventListener('model-loaded', (e) => {
+    const model = e.detail.model;
+    model.traverse((node) => {
+      if (node.isMesh) {
+        node.material.emissive = new THREE.Color(0x00ff00); // Set emissive color (e.g., green)
+        node.material.emissiveIntensity = 0.5; // Control emissive strength
+      }
+    });
+  });
+</script>
 
 
 
